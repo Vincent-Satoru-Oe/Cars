@@ -18,19 +18,19 @@
 
 - (IBAction)generateNewCars {
 //    NSArray *myImageNames = [NSArray arrayWithObjects:@"Blue Car.png", @"Orange Car.png", @"Green  Car.png", @"Pink Car.png", @"Yellow Car.png", @"Red Car.png", nil];
-//    int index = arc4random() % [myImageNames count];
-//    
-//    UIImage *myImage = [UIImage imageNamed:[myImageNames objectAtIndex:index]];
-//    leftLaneCar1.image = myImage;
-//    leftLaneCar2.image = myImage;
-//    leftLaneCar3.image = myImage;
+    //int index = arc4random() % [myImageNames count];
+    
+    //UIImage *myImage = [UIImage imageNamed:[myImageNames objectAtIndex:index]];
+    //leftLaneCar1.image = myImage;
+    //leftLaneCar2.image = myImage;
+    //leftLaneCar3.image = myImage;
 }
 
 -(void) movePlayerCar
 {
     [self hitCar];
     
-    //playersCar.center = CGPointMake(playersCar.center.x, playersCar.center.y + y);
+    playersCar.center = CGPointMake(playersCar.center.x, playersCar.center.y + y);
     
     road9.center = CGPointMake(road9.center.x, road9.center.y + 10);
     road8.center = CGPointMake(road8.center.x, road8.center.y + 10);
@@ -41,11 +41,11 @@
     road3.center = CGPointMake(road3.center.x, road3.center.y + 10);
     road2.center = CGPointMake(road2.center.x, road2.center.y + 10);
     road1.center = CGPointMake(road1.center.x, road1.center.y + 10);
-    //[playerCar drawAtPoint:CGPointMake(199, 448)];
+    [playerCar drawAtPoint:CGPointMake(199, 448)];
 
-//    leftLaneCar1.center = CGPointMake(leftLaneCar1.center.x, leftLaneCar1.center.y + 10);
-//    leftLaneCar2.center = CGPointMake(leftLaneCar2.center.x, leftLaneCar2.center.y + 10);
-//    leftLaneCar3.center = CGPointMake(leftLaneCar3.center.x, leftLaneCar3.center.y + 10);
+    leftLaneCar1.center = CGPointMake(leftLaneCar1.center.x, leftLaneCar1.center.y + 10);
+    leftLaneCar2.center = CGPointMake(leftLaneCar2.center.x, leftLaneCar2.center.y + 10);
+    leftLaneCar3.center = CGPointMake(leftLaneCar3.center.x, leftLaneCar3.center.y + 10);
 
     if (road1.center.y > 560)
         road1.center = CGPointMake(road1.center.x, -10);
@@ -104,49 +104,53 @@
 
 -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     if (start == YES) {
-        highScore.hidden = YES;
-        developerName.hidden = YES;
-        tapToStart.hidden = YES;
-        
-        timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(movePlayerCar) userInfo:Nil repeats:YES];
-    
-        scorer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(scoring) userInfo:nil repeats:YES];
-    
-        start = NO;
-        
-        playersCar.hidden = NO;
-        
-        road9.center = CGPointMake(160, 36);
-        road8.center = CGPointMake(160, 100);
-        road7.center = CGPointMake(160, 164);
-        road6.center = CGPointMake(160, 228);
-        road5.center = CGPointMake(160, 292);
-        road4.center = CGPointMake(160, 356);
-        road3.center = CGPointMake(160, 420);
-        road2.center = CGPointMake(160, 484);
-        road1.center = CGPointMake(160, 548);
-        
-        playersCar.center = CGPointMake(199, 448);
-        
-        playerCar = [UIImage imageWithContentsOfFile:@"BlueCar"];
-        [playerCar drawAtPoint:CGPointMake(199, 448)];
-
-//        leftLaneCar1.center = CGPointMake(39, -30);
-//        leftLaneCar2.center = CGPointMake(39, -100);
-//        leftLaneCar3.center = CGPointMake(39, -150);
-//        
-//        centerLeftLaneCar1.center = CGPointMake(121, 30);
-//        centerLeftLaneCar2.center = CGPointMake(121, 100);
-//        centerLeftLaneCar3.center = CGPointMake(121, 150);
-//        
-//        centerRightLaneCar1.center = CGPointMake(199, -30);
-//        centerRightLaneCar2.center = CGPointMake(199, -100);
-//        centerRightLaneCar3.center = CGPointMake(199, -150);
-//        
-//        leftLaneCar1.center = CGPointMake(277, -30);
-//        leftLaneCar2.center = CGPointMake(277, -100);
-//        leftLaneCar3.center = CGPointMake(277, -150);
+        [self startGame];
     }
+}
+
+- (void)startGame {
+    highScore.hidden = YES;
+    developerName.hidden = YES;
+    tapToStart.hidden = YES;
+    
+    timer = [NSTimer scheduledTimerWithTimeInterval:.05 target:self selector:@selector(movePlayerCar) userInfo:Nil repeats:YES];
+    
+    scorer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(scoring) userInfo:nil repeats:YES];
+    
+    start = NO;
+    
+    playersCar.hidden = NO;
+    
+    road9.center = CGPointMake(160, 36);
+    road8.center = CGPointMake(160, 100);
+    road7.center = CGPointMake(160, 164);
+    road6.center = CGPointMake(160, 228);
+    road5.center = CGPointMake(160, 292);
+    road4.center = CGPointMake(160, 356);
+    road3.center = CGPointMake(160, 420);
+    road2.center = CGPointMake(160, 484);
+    road1.center = CGPointMake(160, 548);
+    
+    playersCar.center = CGPointMake(199, 448);
+    
+    playerCar = [UIImage imageWithContentsOfFile:@"BlueCar"];
+    [playerCar drawAtPoint:CGPointMake(199, 448)];
+    
+            leftLaneCar1.center = CGPointMake(39, -30);
+            leftLaneCar2.center = CGPointMake(39, -100);
+            leftLaneCar3.center = CGPointMake(39, -150);
+    
+            centerLeftLaneCar1.center = CGPointMake(121, 30);
+            centerLeftLaneCar2.center = CGPointMake(121, 100);
+            centerLeftLaneCar3.center = CGPointMake(121, 150);
+    
+            centerRightLaneCar1.center = CGPointMake(199, -30);
+            centerRightLaneCar2.center = CGPointMake(199, -100);
+            centerRightLaneCar3.center = CGPointMake(199, -150);
+    
+            leftLaneCar1.center = CGPointMake(277, -30);
+            leftLaneCar2.center = CGPointMake(277, -100);
+            leftLaneCar3.center = CGPointMake(277, -150);
 }
 
 - (void)viewDidLoad
@@ -154,8 +158,13 @@
     [super viewDidLoad];
     start = YES;
     playersCar.hidden = NO;
-    playerCar = [UIImage imageWithContentsOfFile:@"BlueCar"];
-    [playerCar drawAtPoint:CGPointMake(199, 448)];
+    
+    
+    playerCar = [UIImage imageNamed:@"MyImage.png"];
+    playerCarView = [[UIImageView alloc] initWithImage:playerCar];
+    [self.view addSubview:playerCarView];
+    // Add imageView to a parent view here.
+    
     
     //highScore = [[NSUserDefaults standardUserDefaults] integerForKey:@"High Score Saved"];
     //intro3.text = [NSString stringWithFormat:@"High Score: %i", highScore];
