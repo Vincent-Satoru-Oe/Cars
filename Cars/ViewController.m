@@ -41,7 +41,7 @@
     road3.center = CGPointMake(road3.center.x, road3.center.y + 10);
     road2.center = CGPointMake(road2.center.x, road2.center.y + 10);
     road1.center = CGPointMake(road1.center.x, road1.center.y + 10);
-
+    
     leftLaneCar1.center = CGPointMake(leftLaneCar1.center.x, leftLaneCar1.center.y + 10);
     leftLaneCar2.center = CGPointMake(leftLaneCar2.center.x, leftLaneCar2.center.y + 10);
     leftLaneCar3.center = CGPointMake(leftLaneCar3.center.x, leftLaneCar3.center.y + 10);
@@ -102,6 +102,24 @@
     [scorer invalidate];
 }
 
+- (void)handleSwipe:(UISwipeGestureRecognizer *)swipe {
+    
+    if (swipe.direction == UISwipeGestureRecognizerDirectionLeft) {
+        // Move car left by calling function
+        NSLog(@"swipeLeft");
+    }
+    
+    if (swipe.direction == UISwipeGestureRecognizerDirectionRight) {
+        // Move car right by calling function
+        NSLog(@"swipeRight");
+    }
+    
+}
+
+- (void) changeLanes {
+
+}
+
 -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     if (start == YES) {
         [self startGame];
@@ -143,6 +161,7 @@
     
 }
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -154,14 +173,24 @@
     playerCarView = [[UIImageView alloc] initWithImage:playerCar];
     playerCarView.center = CGPointMake(199, 448);
     [self.view addSubview:playerCarView];
-    // Add imageView to a parent view here.
     
     
-    //highScore = [[NSUserDefaults standardUserDefaults] integerForKey:@"High Score Saved"];
-    //intro3.text = [NSString stringWithFormat:@"High Score: %i", highScore];
     
     
-	// Do any additional setup after loading the view, typically from a nib.
+    self.view.userInteractionEnabled = YES;
+    
+    UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
+    UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
+    
+    // Setting the swipe direction.
+    [swipeLeft setDirection:UISwipeGestureRecognizerDirectionLeft];
+    [swipeRight setDirection:UISwipeGestureRecognizerDirectionRight];
+    
+    // Adding the swipe gesture on image view
+    [self.view addGestureRecognizer:swipeLeft];
+    [self.view addGestureRecognizer:swipeRight];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
