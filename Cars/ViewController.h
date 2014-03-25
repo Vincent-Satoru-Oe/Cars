@@ -72,10 +72,6 @@ int highScore;
 -(void) scoring;             // number of cars cut off
 -(void) hitCar;              // hit another car
 -(void) endGame;             // when to end the game
-
-//-(void) generateSurroundingCars;
-
-//-(void) hitSide; ??
-
+-(void) changeLanes;         // changes lane of players car
 
 @end
