@@ -12,6 +12,10 @@ BOOL start;
 //int randomPosition;
 int scoreNumber;
 int highScore;
+static CGFloat lane0 = 38;
+static CGFloat lane1 = 116;
+static CGFloat lane2 = 205;
+static CGFloat lane3 = 285;
 
 @interface ViewController : UIViewController
 {
