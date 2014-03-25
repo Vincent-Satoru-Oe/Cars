@@ -66,6 +66,7 @@
     else if (road9.center.y > 560)
         road9.center = CGPointMake(road9.center.x, -10);
 }
+
 -(void) moveSurroundingCars
 {
     
@@ -104,17 +105,17 @@
 
 -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     if (start == YES) {
-        highScore.hidden = YES;
-        developerName.hidden = YES;
-        tapToStart.hidden = YES;
-        
-        timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(movePlayerCar) userInfo:Nil repeats:YES];
+        timer = [NSTimer scheduledTimerWithTimeInterval:.05 target:self selector:@selector(movePlayerCar) userInfo:Nil repeats:YES];
     
         scorer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(scoring) userInfo:nil repeats:YES];
     
         start = NO;
         
         playersCar.hidden = NO;
+        
+        highScore.hidden = YES;
+        developerName.hidden = YES;
+        tapToStart.hidden = YES;
         
         road9.center = CGPointMake(160, 36);
         road8.center = CGPointMake(160, 100);
@@ -126,26 +127,16 @@
         road2.center = CGPointMake(160, 484);
         road1.center = CGPointMake(160, 548);
         
-        playersCar.center = CGPointMake(199, 448);
+        testCar1.center = CGPointMake(38, 250);
+        testCar2.center = CGPointMake(116, 250);
+        testCar3.center = CGPointMake(205, 250);
+        testCar4.center = CGPointMake(285, 250);
         
+        
+        playersCar.center = CGPointMake(199, 448);
+
         playerCar = [UIImage imageWithContentsOfFile:@"BlueCar"];
         [playerCar drawAtPoint:CGPointMake(199, 448)];
-
-//        leftLaneCar1.center = CGPointMake(39, -30);
-//        leftLaneCar2.center = CGPointMake(39, -100);
-//        leftLaneCar3.center = CGPointMake(39, -150);
-//        
-//        centerLeftLaneCar1.center = CGPointMake(121, 30);
-//        centerLeftLaneCar2.center = CGPointMake(121, 100);
-//        centerLeftLaneCar3.center = CGPointMake(121, 150);
-//        
-//        centerRightLaneCar1.center = CGPointMake(199, -30);
-//        centerRightLaneCar2.center = CGPointMake(199, -100);
-//        centerRightLaneCar3.center = CGPointMake(199, -150);
-//        
-//        leftLaneCar1.center = CGPointMake(277, -30);
-//        leftLaneCar2.center = CGPointMake(277, -100);
-//        leftLaneCar3.center = CGPointMake(277, -150);
     }
 }
 

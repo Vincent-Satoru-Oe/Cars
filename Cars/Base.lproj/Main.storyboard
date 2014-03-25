@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <deployment defaultVersion="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -22,66 +22,84 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CarRoadLines.png" translatesAutoresizingMaskIntoConstraints="NO" id="6LA-FZ-QpZ">
-                                <rect key="frame" x="63" y="11" width="195" height="25"/>
+                                <rect key="frame" x="70" y="11" width="180" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CarRoadLines.png" translatesAutoresizingMaskIntoConstraints="NO" id="inc-pA-5AU">
-                                <rect key="frame" x="63" y="76" width="195" height="25"/>
+                                <rect key="frame" x="70" y="76" width="180" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CarRoadLines.png" translatesAutoresizingMaskIntoConstraints="NO" id="bob-3I-TIJ">
-                                <rect key="frame" x="63" y="141" width="195" height="25"/>
+                                <rect key="frame" x="70" y="141" width="180" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CarRoadLines.png" translatesAutoresizingMaskIntoConstraints="NO" id="AlC-oR-C7a">
-                                <rect key="frame" x="63" y="206" width="195" height="25"/>
+                                <rect key="frame" x="70" y="206" width="180" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CarRoadLines.png" translatesAutoresizingMaskIntoConstraints="NO" id="cpg-gV-dIL">
-                                <rect key="frame" x="63" y="271" width="195" height="25"/>
+                                <rect key="frame" x="70" y="271" width="180" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CarRoadLines.png" translatesAutoresizingMaskIntoConstraints="NO" id="DbP-kt-tBA">
-                                <rect key="frame" x="63" y="336" width="195" height="25"/>
+                                <rect key="frame" x="70" y="336" width="180" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CarRoadLines.png" translatesAutoresizingMaskIntoConstraints="NO" id="Meu-Nu-Fjx">
-                                <rect key="frame" x="63" y="401" width="195" height="25"/>
+                                <rect key="frame" x="70" y="401" width="180" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CarRoadLines.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ft2-9m-CRX">
-                                <rect key="frame" x="63" y="466" width="195" height="25"/>
+                                <rect key="frame" x="70" y="466" width="180" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CarRoadLines.png" translatesAutoresizingMaskIntoConstraints="NO" id="2vU-hL-19P">
-                                <rect key="frame" x="63" y="531" width="195" height="25"/>
+                                <rect key="frame" x="70" y="531" width="180" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qhb-J5-VKG">
-                                <rect key="frame" x="139" y="112" width="42" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HighScore" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qhb-J5-VKG">
+                                <rect key="frame" x="120" y="109" width="81" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.056649805392311396" green="0.96898155561572363" blue="0.98294005102040816" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sPv-B0-7J3">
-                                <rect key="frame" x="139" y="177" width="42" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tap To Start" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sPv-B0-7J3">
+                                <rect key="frame" x="114" y="177" width="92" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.142456511724114" green="1" blue="0.11757171606279737" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B8f-g4-x3a">
-                                <rect key="frame" x="139" y="47" width="42" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DeveloperName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B8f-g4-x3a">
+                                <rect key="frame" x="98" y="47" width="124" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.086573815128913267" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="RedCar.png" translatesAutoresizingMaskIntoConstraints="NO" id="GCB-3r-xop">
+                                <rect key="frame" x="268" y="487" width="34" height="69"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="GreenCar.png" translatesAutoresizingMaskIntoConstraints="NO" id="tTH-Re-8Km">
+                                <rect key="frame" x="189" y="487" width="34" height="69"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="YellowCar.png" translatesAutoresizingMaskIntoConstraints="NO" id="R7L-ql-I0e">
+                                <rect key="frame" x="18" y="487" width="34" height="69"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BlueCar.png" translatesAutoresizingMaskIntoConstraints="NO" id="3cH-q1-16K">
+                                <rect key="frame" x="96" y="487" width="34" height="69"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="developerName" destination="B8f-g4-x3a" id="ugQ-Fb-oDW"/>
+                        <outlet property="highScore" destination="qhb-J5-VKG" id="LXb-S7-uTH"/>
                         <outlet property="road1" destination="2vU-hL-19P" id="SW3-d3-1zD"/>
                         <outlet property="road2" destination="Ft2-9m-CRX" id="xtt-M8-VjU"/>
                         <outlet property="road3" destination="Meu-Nu-Fjx" id="wHk-Qc-1c0"/>
@@ -91,6 +109,11 @@
                         <outlet property="road7" destination="bob-3I-TIJ" id="EjG-Ys-fTE"/>
                         <outlet property="road8" destination="inc-pA-5AU" id="Jcu-Cb-4AO"/>
                         <outlet property="road9" destination="6LA-FZ-QpZ" id="GVW-yY-dTx"/>
+                        <outlet property="tapToStart" destination="sPv-B0-7J3" id="U6p-NV-NWv"/>
+                        <outlet property="testCar1" destination="R7L-ql-I0e" id="3iA-rZ-RDr"/>
+                        <outlet property="testCar2" destination="3cH-q1-16K" id="phu-Nl-Jo1"/>
+                        <outlet property="testCar3" destination="tTH-Re-8Km" id="9JE-X0-5Ak"/>
+                        <outlet property="testCar4" destination="GCB-3r-xop" id="eDG-KP-hrh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -99,8 +122,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="BlueCar.png" width="34" height="69"/>
         <image name="CarRoadLines.png" width="323" height="64"/>
+        <image name="GreenCar.png" width="34" height="69"/>
         <image name="New Road.png" width="527" height="600"/>
+        <image name="RedCar.png" width="34" height="69"/>
+        <image name="YellowCar.png" width="34" height="69"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

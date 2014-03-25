@@ -57,6 +57,13 @@ int highScore;
     IBOutlet UIImageView *road7;
     IBOutlet UIImageView *road8;
     IBOutlet UIImageView *road9;
+    
+    // Test Car
+    IBOutlet UIImageView *testCar1;
+    IBOutlet UIImageView *testCar2;
+    IBOutlet UIImageView *testCar3;
+    IBOutlet UIImageView *testCar4;
+
 }
 
 -(void) movePlayerCar;       // moves players cars
@@ -65,7 +72,6 @@ int highScore;
 -(void) scoring;             // number of cars cut off
 -(void) hitCar;              // hit another car
 -(void) endGame;             // when to end the game
-
 
 //-(void) generateSurroundingCars;
 
