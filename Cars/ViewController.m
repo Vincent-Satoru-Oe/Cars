@@ -41,7 +41,7 @@
     road3.center = CGPointMake(road3.center.x, road3.center.y + 10);
     road2.center = CGPointMake(road2.center.x, road2.center.y + 10);
     road1.center = CGPointMake(road1.center.x, road1.center.y + 10);
-    [playerCar drawAtPoint:CGPointMake(199, 448)];
+    //[playerCar drawAtPoint:CGPointMake(199, 448)];
 
     leftLaneCar1.center = CGPointMake(leftLaneCar1.center.x, leftLaneCar1.center.y + 10);
     leftLaneCar2.center = CGPointMake(leftLaneCar2.center.x, leftLaneCar2.center.y + 10);
@@ -139,10 +139,10 @@
     
     
     playersCar.center = CGPointMake(199, 448);
-    
     playerCar = [UIImage imageWithContentsOfFile:@"BlueCar"];
     [playerCar drawAtPoint:CGPointMake(199, 448)];
 }
+
 
 - (void)viewDidLoad
 {
