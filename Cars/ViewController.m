@@ -39,6 +39,7 @@
     road3.center = CGPointMake(road3.center.x, road3.center.y + 10);
     road2.center = CGPointMake(road2.center.x, road2.center.y + 10);
     road1.center = CGPointMake(road1.center.x, road1.center.y + 10);
+    //[playerCar drawAtPoint:CGPointMake(199, 448)];
 
 //    leftLaneCar1.center = CGPointMake(leftLaneCar1.center.x, leftLaneCar1.center.y + 10);
 //    leftLaneCar2.center = CGPointMake(leftLaneCar2.center.x, leftLaneCar2.center.y + 10);
@@ -105,7 +106,7 @@
         developerName.hidden = YES;
         tapToStart.hidden = YES;
         
-        timer = [NSTimer scheduledTimerWithTimeInterval:.05 target:self selector:@selector(movePlayerCar) userInfo:Nil repeats:YES];
+        timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(movePlayerCar) userInfo:Nil repeats:YES];
     
         scorer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(scoring) userInfo:nil repeats:YES];
     
@@ -124,6 +125,9 @@
         road1.center = CGPointMake(160, 548);
         
         playersCar.center = CGPointMake(199, 448);
+        
+        playerCar = [UIImage imageWithContentsOfFile:@"BlueCar"];
+        [playerCar drawAtPoint:CGPointMake(199, 448)];
 
 //        leftLaneCar1.center = CGPointMake(39, -30);
 //        leftLaneCar2.center = CGPointMake(39, -100);
@@ -145,13 +149,16 @@
 
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
     start = YES;
     playersCar.hidden = NO;
+    playerCar = [UIImage imageWithContentsOfFile:@"BlueCar"];
+    [playerCar drawAtPoint:CGPointMake(199, 448)];
     
     //highScore = [[NSUserDefaults standardUserDefaults] integerForKey:@"High Score Saved"];
     //intro3.text = [NSString stringWithFormat:@"High Score: %i", highScore];
     
-    [super viewDidLoad];
+    
 	// Do any additional setup after loading the view, typically from a nib.
 }
 

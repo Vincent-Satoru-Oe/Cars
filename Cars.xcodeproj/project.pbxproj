@@ -22,13 +22,13 @@
 		FD41EB9218E0197E00E3C01A /* CarsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FD41EB9118E0197E00E3C01A /* CarsTests.m */; };
 		FD41EB9D18E019C300E3C01A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD41EB9C18E019C300E3C01A /* ViewController.m */; };
 		FD41EB9F18E019F600E3C01A /* New Road.png in Resources */ = {isa = PBXBuildFile; fileRef = FD41EB9E18E019F600E3C01A /* New Road.png */; };
-		FD41EBA318E01A0400E3C01A /* Green Car.png in Resources */ = {isa = PBXBuildFile; fileRef = FD41EBA218E01A0400E3C01A /* Green Car.png */; };
+		FD41EBA318E01A0400E3C01A /* GreenCar.png in Resources */ = {isa = PBXBuildFile; fileRef = FD41EBA218E01A0400E3C01A /* GreenCar.png */; };
 		FD41EBA718E024A000E3C01A /* CarRoadLines.png in Resources */ = {isa = PBXBuildFile; fileRef = FD41EBA618E024A000E3C01A /* CarRoadLines.png */; };
-		FD41EBAD18E02D6200E3C01A /* Blue Car.png in Resources */ = {isa = PBXBuildFile; fileRef = FD41EBA818E02D6200E3C01A /* Blue Car.png */; };
-		FD41EBAE18E02D6200E3C01A /* Orange Car.png in Resources */ = {isa = PBXBuildFile; fileRef = FD41EBA918E02D6200E3C01A /* Orange Car.png */; };
-		FD41EBAF18E02D6200E3C01A /* Pink Car.png in Resources */ = {isa = PBXBuildFile; fileRef = FD41EBAA18E02D6200E3C01A /* Pink Car.png */; };
-		FD41EBB018E02D6200E3C01A /* Red Car.png in Resources */ = {isa = PBXBuildFile; fileRef = FD41EBAB18E02D6200E3C01A /* Red Car.png */; };
-		FD41EBB118E02D6200E3C01A /* Yellow Car.png in Resources */ = {isa = PBXBuildFile; fileRef = FD41EBAC18E02D6200E3C01A /* Yellow Car.png */; };
+		FD41EBAD18E02D6200E3C01A /* BlueCar.png in Resources */ = {isa = PBXBuildFile; fileRef = FD41EBA818E02D6200E3C01A /* BlueCar.png */; };
+		FD41EBAE18E02D6200E3C01A /* OrangeCar.png in Resources */ = {isa = PBXBuildFile; fileRef = FD41EBA918E02D6200E3C01A /* OrangeCar.png */; };
+		FD41EBAF18E02D6200E3C01A /* PinkCar.png in Resources */ = {isa = PBXBuildFile; fileRef = FD41EBAA18E02D6200E3C01A /* PinkCar.png */; };
+		FD41EBB018E02D6200E3C01A /* RedCar.png in Resources */ = {isa = PBXBuildFile; fileRef = FD41EBAB18E02D6200E3C01A /* RedCar.png */; };
+		FD41EBB118E02D6200E3C01A /* YellowCar.png in Resources */ = {isa = PBXBuildFile; fileRef = FD41EBAC18E02D6200E3C01A /* YellowCar.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,13 +62,13 @@
 		FD41EB9B18E019C300E3C01A /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		FD41EB9C18E019C300E3C01A /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		FD41EB9E18E019F600E3C01A /* New Road.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "New Road.png"; sourceTree = "<group>"; };
-		FD41EBA218E01A0400E3C01A /* Green Car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Green Car.png"; sourceTree = "<group>"; };
+		FD41EBA218E01A0400E3C01A /* GreenCar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GreenCar.png; sourceTree = "<group>"; };
 		FD41EBA618E024A000E3C01A /* CarRoadLines.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CarRoadLines.png; sourceTree = "<group>"; };
-		FD41EBA818E02D6200E3C01A /* Blue Car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Blue Car.png"; sourceTree = "<group>"; };
-		FD41EBA918E02D6200E3C01A /* Orange Car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Orange Car.png"; sourceTree = "<group>"; };
-		FD41EBAA18E02D6200E3C01A /* Pink Car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Pink Car.png"; sourceTree = "<group>"; };
-		FD41EBAB18E02D6200E3C01A /* Red Car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Red Car.png"; sourceTree = "<group>"; };
-		FD41EBAC18E02D6200E3C01A /* Yellow Car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Yellow Car.png"; sourceTree = "<group>"; };
+		FD41EBA818E02D6200E3C01A /* BlueCar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BlueCar.png; sourceTree = "<group>"; };
+		FD41EBA918E02D6200E3C01A /* OrangeCar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OrangeCar.png; sourceTree = "<group>"; };
+		FD41EBAA18E02D6200E3C01A /* PinkCar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PinkCar.png; sourceTree = "<group>"; };
+		FD41EBAB18E02D6200E3C01A /* RedCar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedCar.png; sourceTree = "<group>"; };
+		FD41EBAC18E02D6200E3C01A /* YellowCar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = YellowCar.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,12 +142,12 @@
 		FD41EB6D18E0197E00E3C01A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				FD41EBA818E02D6200E3C01A /* Blue Car.png */,
-				FD41EBA918E02D6200E3C01A /* Orange Car.png */,
-				FD41EBAA18E02D6200E3C01A /* Pink Car.png */,
-				FD41EBAB18E02D6200E3C01A /* Red Car.png */,
-				FD41EBAC18E02D6200E3C01A /* Yellow Car.png */,
-				FD41EBA218E01A0400E3C01A /* Green Car.png */,
+				FD41EBA818E02D6200E3C01A /* BlueCar.png */,
+				FD41EBA918E02D6200E3C01A /* OrangeCar.png */,
+				FD41EBAA18E02D6200E3C01A /* PinkCar.png */,
+				FD41EBAB18E02D6200E3C01A /* RedCar.png */,
+				FD41EBAC18E02D6200E3C01A /* YellowCar.png */,
+				FD41EBA218E01A0400E3C01A /* GreenCar.png */,
 				FD41EBA618E024A000E3C01A /* CarRoadLines.png */,
 				FD41EB9E18E019F600E3C01A /* New Road.png */,
 				FD41EB6E18E0197E00E3C01A /* Cars-Info.plist */,
@@ -255,14 +255,14 @@
 				FD41EB7F18E0197E00E3C01A /* Images.xcassets in Resources */,
 				FD41EB7118E0197E00E3C01A /* InfoPlist.strings in Resources */,
 				FD41EBA718E024A000E3C01A /* CarRoadLines.png in Resources */,
-				FD41EBB118E02D6200E3C01A /* Yellow Car.png in Resources */,
-				FD41EBB018E02D6200E3C01A /* Red Car.png in Resources */,
-				FD41EBAE18E02D6200E3C01A /* Orange Car.png in Resources */,
-				FD41EBAD18E02D6200E3C01A /* Blue Car.png in Resources */,
-				FD41EBA318E01A0400E3C01A /* Green Car.png in Resources */,
+				FD41EBB118E02D6200E3C01A /* YellowCar.png in Resources */,
+				FD41EBB018E02D6200E3C01A /* RedCar.png in Resources */,
+				FD41EBAE18E02D6200E3C01A /* OrangeCar.png in Resources */,
+				FD41EBAD18E02D6200E3C01A /* BlueCar.png in Resources */,
+				FD41EBA318E01A0400E3C01A /* GreenCar.png in Resources */,
 				FD41EB7A18E0197E00E3C01A /* Main.storyboard in Resources */,
 				FD41EB9F18E019F600E3C01A /* New Road.png in Resources */,
-				FD41EBAF18E02D6200E3C01A /* Pink Car.png in Resources */,
+				FD41EBAF18E02D6200E3C01A /* PinkCar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -22,6 +22,9 @@ int highScore;
     IBOutlet UILabel *developerName;   // developer name
     IBOutlet UILabel *tapToStart;      // label that says tap to start
     
+    UIImage *playerCar;
+    UIImageView *playerCarView;
+    
     IBOutlet UILabel *score;
 
     // The players Car
