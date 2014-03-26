@@ -9,6 +9,7 @@
 //New line here
 
 #import "ViewController.h"
+#import "Car.h"
 
 @interface ViewController ()
 
@@ -23,9 +24,6 @@
 -(void) movePlayerCar
 {
     [self hitCar];
-
-    playersCar.center = CGPointMake(playersCar.center.x, playersCar.center.y + y);
-
     road9.center = CGPointMake(road9.center.x, road9.center.y + 10);
     road8.center = CGPointMake(road8.center.x, road8.center.y + 10);
     road7.center = CGPointMake(road7.center.x, road7.center.y + 10);
@@ -72,7 +70,6 @@
     score.text = [NSString stringWithFormat:@"Score: %i", scoreNumber];
 }
 
-
 -(void) hitCar
 {
     
@@ -85,7 +82,6 @@
     //    highScore = scoreNumber;
     //    [[NSUserDefaults standardUserDefaults] setInteger:highScore forKey:@"High Score Saved"];
     //}
-    playersCar.hidden = YES;
     [timer invalidate];
     [scorer invalidate];
 }
@@ -94,18 +90,11 @@
     
     if (swipe.direction == UISwipeGestureRecognizerDirectionLeft) {
         // Move car left by calling function
-        NSLog(@"swipeLeft");
     }
-    
     if (swipe.direction == UISwipeGestureRecognizerDirectionRight) {
         // Move car right by calling function
         NSLog(@"swipeRight");
     }
-    
-}
-
-- (void) changeLanes {
-    
 }
 
 -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -115,16 +104,17 @@
 }
 
 - (void)startGame {
-    timer = [NSTimer scheduledTimerWithTimeInterval:.05 target:self selector:@selector(movePlayerCar) userInfo:Nil repeats:YES];
-    
-    scorer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(scoring) userInfo:nil repeats:YES];
-    
     start = NO;
+
+    lane0 = [[NSArray alloc] init];
+    lane1 = [[NSArray alloc] init];
+    lane2 = [[NSArray alloc] init];
+    lane3 = [[NSArray alloc] init];
 
     highScore.hidden = YES;
     developerName.hidden = YES;
     tapToStart.hidden = YES;
-    
+
     road9.center = CGPointMake(160, 36);
     road8.center = CGPointMake(160, 100);
     road7.center = CGPointMake(160, 164);
@@ -134,50 +124,33 @@
     road3.center = CGPointMake(160, 420);
     road2.center = CGPointMake(160, 484);
     road1.center = CGPointMake(160, 548);
-    
-    //testCar1.center = CGPointMake(38, 250);
-    //testCar2.center = CGPointMake(116, 250);
-    //testCar3.center = CGPointMake(205, 250);
-    //testCar4.center = CGPointMake(285, 250);
+
+    timer = [NSTimer scheduledTimerWithTimeInterval:.05 target:self selector:@selector(movePlayerCar) userInfo:Nil repeats:YES];
+
+    scorer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(scoring) userInfo:nil repeats:YES];
 }
-//- (void) aMethod:(id)whichButton
-//{
-//    
-//}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     start = YES;
-    
-//    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-//    [button addTarget:self
-//               action:@selector(aMethod:)
-//     forControlEvents:UIControlEventTouchUpInside];
-//    [button setTitle:@"Show View" forState:UIControlStateNormal];
-//    button.frame = CGRectMake(80.0, 210.0, 160.0, 40.0);
-//    [_view addSubview:button];
-    
 
-    playerCar = [UIImage imageNamed:@"BlueCar.png"];
+    playerCar = [[Car alloc] initPlayerCar];
+    [self.view addSubview:playerCar.imageView];
 
-    playerCarView = [[UIImageView alloc] initWithImage:playerCar];
-    playerCarView.center = CGPointMake(205, 448);
-    [self.view addSubview:playerCarView];
-    
     self.view.userInteractionEnabled = YES;
-    
+
     UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
     UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
 
     // Setting the swipe direction.
     [swipeLeft setDirection:UISwipeGestureRecognizerDirectionLeft];
     [swipeRight setDirection:UISwipeGestureRecognizerDirectionRight];
-    
+
     // Adding the swipe gesture on image view
     [self.view addGestureRecognizer:swipeLeft];
     [self.view addGestureRecognizer:swipeRight];
-    
-    
+
 }
 
 - (void)didReceiveMemoryWarning
