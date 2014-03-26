@@ -9,6 +9,7 @@
 //New line here
 
 #import "ViewController.h"
+#import "Car.h"
 
 @interface ViewController ()
 
@@ -30,8 +31,6 @@
 {
     [self hitCar];
     
-    playersCar.center = CGPointMake(playersCar.center.x, playersCar.center.y + y);
-    
     road9.center = CGPointMake(road9.center.x, road9.center.y + 10);
     road8.center = CGPointMake(road8.center.x, road8.center.y + 10);
     road7.center = CGPointMake(road7.center.x, road7.center.y + 10);
@@ -41,10 +40,6 @@
     road3.center = CGPointMake(road3.center.x, road3.center.y + 10);
     road2.center = CGPointMake(road2.center.x, road2.center.y + 10);
     road1.center = CGPointMake(road1.center.x, road1.center.y + 10);
-    
-    leftLaneCar1.center = CGPointMake(leftLaneCar1.center.x, leftLaneCar1.center.y + 10);
-    leftLaneCar2.center = CGPointMake(leftLaneCar2.center.x, leftLaneCar2.center.y + 10);
-    leftLaneCar3.center = CGPointMake(leftLaneCar3.center.x, leftLaneCar3.center.y + 10);
 
     if (road1.center.y > 560)
         road1.center = CGPointMake(road1.center.x, -10);
@@ -97,7 +92,6 @@
     //    highScore = scoreNumber;
     //    [[NSUserDefaults standardUserDefaults] setInteger:highScore forKey:@"High Score Saved"];
     //}
-    playersCar.hidden = YES;
     [timer invalidate];
     [scorer invalidate];
 }
@@ -127,13 +121,12 @@
 }
 
 - (void)startGame {
-    timer = [NSTimer scheduledTimerWithTimeInterval:.05 target:self selector:@selector(movePlayerCar) userInfo:Nil repeats:YES];
-    
-    scorer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(scoring) userInfo:nil repeats:YES];
-    
     start = NO;
     
-    playersCar.hidden = NO;
+    lane0 = [[NSArray alloc] init];
+    lane1 = [[NSArray alloc] init];
+    lane2 = [[NSArray alloc] init];
+    lane3 = [[NSArray alloc] init];
     
     highScore.hidden = YES;
     developerName.hidden = YES;
@@ -149,15 +142,9 @@
     road2.center = CGPointMake(160, 484);
     road1.center = CGPointMake(160, 548);
     
-    //testCar1.center = CGPointMake(38, 250);
-    //testCar2.center = CGPointMake(116, 250);
-    //testCar3.center = CGPointMake(205, 250);
-    //testCar4.center = CGPointMake(285, 250);
+    timer = [NSTimer scheduledTimerWithTimeInterval:.05 target:self selector:@selector(movePlayerCar) userInfo:Nil repeats:YES];
     
-    //playerCar = [UIImage imageNamed:@"BlueCar.png"];
-    //playersCar.center = CGPointMake(199, 448);
-    //playerCarView = [[UIImageView alloc] initWithImage:playerCar];
-    //[self.view addSubview:playerCarView];
+    scorer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(scoring) userInfo:nil repeats:YES];
     
 }
 
@@ -166,16 +153,9 @@
 {
     [super viewDidLoad];
     start = YES;
-    playersCar.hidden = NO;
     
-    
-    playerCar = [UIImage imageNamed:@"BlueCar.png"];
-    playerCarView = [[UIImageView alloc] initWithImage:playerCar];
-    playerCarView.center = CGPointMake(199, 448);
-    [self.view addSubview:playerCarView];
-    
-    
-    
+    playerCar = [[Car alloc] initPlayerCar];
+    [self.view addSubview:playerCar.imageView];
     
     self.view.userInteractionEnabled = YES;
     

@@ -11,9 +11,11 @@
 @interface Car : NSObject
 
 @property UIImage *image;
+@property UIImageView *imageView;
 @property NSInteger *speed;
 @property CGPoint position;
-@property BOOL *isPlayerCar;
+@property NSInteger *currentLane;
+@property BOOL isPlayerCar;
 
 -(id) initWithImage:(NSString*)imageName andSpeed:(NSInteger*)speed;
 -(id) initRandomCar;

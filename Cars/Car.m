@@ -17,7 +17,7 @@ static NSInteger defaultSpeed = 5;
     if (self = [super init]) {
         self.image = [UIImage imageNamed:@"BlueCar.png"];
         self.speed = &(defaultSpeed);
-        self.position = CGPointMake(lane0, 50);
+        self.position = CGPointMake(l0x, 50);
         self.isPlayerCar = NO;
     }
     return self;
@@ -27,7 +27,7 @@ static NSInteger defaultSpeed = 5;
     if (self = [super init]) {
         self.image = [UIImage imageNamed:imageName];
         self.speed = speed;
-        self.position = CGPointMake(lane0, 50);
+        self.position = CGPointMake(l0x, 50);
         self.isPlayerCar = NO;
     }
     return self;
@@ -36,8 +36,11 @@ static NSInteger defaultSpeed = 5;
 -(id)initPlayerCar {
     if (self = [super init]) {
         self.image = [UIImage imageNamed:@"BlueCar.png"];
+        self.imageView = [[UIImageView alloc] initWithImage:self.image];
+        self.imageView.center = CGPointMake(199, 400);
         self.speed = &(defaultSpeed);
-        self.position = CGPointMake(lane2, 448);
+        self.position = CGPointMake(l2x, 448);
+        self.currentLane = 2;
         self.isPlayerCar = YES;
     }
     return self;

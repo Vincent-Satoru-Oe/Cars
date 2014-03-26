@@ -6,50 +6,35 @@
 //  Copyright (c) 2014 Eric Sutton. All rights reserved.
 //
 
+#import "Car.h"
+
 #import <UIKit/UIKit.h>
 int y;
 BOOL start;
-//int randomPosition;
 int scoreNumber;
 int highScore;
-static CGFloat lane0 = 38;
-static CGFloat lane1 = 116;
-static CGFloat lane2 = 205;
-static CGFloat lane3 = 285;
+static CGFloat l0x = 38;
+static CGFloat l1x = 116;
+static CGFloat l2x = 205;
+static CGFloat l3x = 285;
 
 @interface ViewController : UIViewController
 {
     NSTimer *timer;
     NSTimer *scorer;
+    NSArray *lane0;
+    NSArray *lane1;
+    NSArray *lane2;
+    NSArray *lane3;
     
     IBOutlet UILabel *highScore;       // high score
     IBOutlet UILabel *developerName;   // developer name
     IBOutlet UILabel *tapToStart;      // label that says tap to start
     
-    UIImage *playerCar;
+    Car *playerCar;
     UIImageView *playerCarView;
     
     IBOutlet UILabel *score;
-
-    // The players Car
-    IBOutlet UIImageView *playersCar;
-    
-    // Cars in each lane
-    IBOutlet UIImageView *leftLaneCar1;
-    IBOutlet UIImageView *leftLaneCar2;
-    IBOutlet UIImageView *leftLaneCar3;
-
-    IBOutlet UIImageView *centerLeftLaneCar1;
-    IBOutlet UIImageView *centerLeftLaneCar2;
-    IBOutlet UIImageView *centerLeftLaneCar3;
-
-    IBOutlet UIImageView *centerRightLaneCar1;
-    IBOutlet UIImageView *centerRightLaneCar2;
-    IBOutlet UIImageView *centerRightLaneCar3;
-
-    IBOutlet UIImageView *rightLaneCar1;
-    IBOutlet UIImageView *rightLaneCar2;
-    IBOutlet UIImageView *rightLaneCar3;
     
     // White lines on the road
     IBOutlet UIImageView *road1;
@@ -61,13 +46,6 @@ static CGFloat lane3 = 285;
     IBOutlet UIImageView *road7;
     IBOutlet UIImageView *road8;
     IBOutlet UIImageView *road9;
-    
-    // Test Car
-    IBOutlet UIImageView *testCar1;
-    IBOutlet UIImageView *testCar2;
-    IBOutlet UIImageView *testCar3;
-    IBOutlet UIImageView *testCar4;
-
 }
 
 -(void) movePlayerCar;       // moves players cars
