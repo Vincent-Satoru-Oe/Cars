@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 int y;
 BOOL start;
-//int randomPosition;
 int scoreNumber;
 int highScore;
 
@@ -30,23 +29,6 @@ int highScore;
     // The players Car
     IBOutlet UIImageView *playersCar;
     
-    // Cars in each lane
-    IBOutlet UIImageView *leftLaneCar1;
-    IBOutlet UIImageView *leftLaneCar2;
-    IBOutlet UIImageView *leftLaneCar3;
-
-    IBOutlet UIImageView *centerLeftLaneCar1;
-    IBOutlet UIImageView *centerLeftLaneCar2;
-    IBOutlet UIImageView *centerLeftLaneCar3;
-
-    IBOutlet UIImageView *centerRightLaneCar1;
-    IBOutlet UIImageView *centerRightLaneCar2;
-    IBOutlet UIImageView *centerRightLaneCar3;
-
-    IBOutlet UIImageView *rightLaneCar1;
-    IBOutlet UIImageView *rightLaneCar2;
-    IBOutlet UIImageView *rightLaneCar3;
-    
     // White lines on the road
     IBOutlet UIImageView *road1;
     IBOutlet UIImageView *road2;
@@ -57,13 +39,6 @@ int highScore;
     IBOutlet UIImageView *road7;
     IBOutlet UIImageView *road8;
     IBOutlet UIImageView *road9;
-    
-    // Test Car
-    IBOutlet UIImageView *testCar1;
-    IBOutlet UIImageView *testCar2;
-    IBOutlet UIImageView *testCar3;
-    IBOutlet UIImageView *testCar4;
-
 }
 
 -(void) movePlayerCar;       // moves players cars
@@ -73,5 +48,6 @@ int highScore;
 -(void) hitCar;              // hit another car
 -(void) endGame;             // when to end the game
 -(void) changeLanes;         // changes lane of players car
+//-(void) aMethod:(id)whichButton;
 
 @end

@@ -17,21 +17,15 @@
 @implementation ViewController
 
 - (IBAction)generateNewCars {
-//    NSArray *myImageNames = [NSArray arrayWithObjects:@"Blue Car.png", @"Orange Car.png", @"Green  Car.png", @"Pink Car.png", @"Yellow Car.png", @"Red Car.png", nil];
-    //int index = arc4random() % [myImageNames count];
     
-    //UIImage *myImage = [UIImage imageNamed:[myImageNames objectAtIndex:index]];
-    //leftLaneCar1.image = myImage;
-    //leftLaneCar2.image = myImage;
-    //leftLaneCar3.image = myImage;
 }
 
 -(void) movePlayerCar
 {
     [self hitCar];
-    
+
     playersCar.center = CGPointMake(playersCar.center.x, playersCar.center.y + y);
-    
+
     road9.center = CGPointMake(road9.center.x, road9.center.y + 10);
     road8.center = CGPointMake(road8.center.x, road8.center.y + 10);
     road7.center = CGPointMake(road7.center.x, road7.center.y + 10);
@@ -41,10 +35,6 @@
     road3.center = CGPointMake(road3.center.x, road3.center.y + 10);
     road2.center = CGPointMake(road2.center.x, road2.center.y + 10);
     road1.center = CGPointMake(road1.center.x, road1.center.y + 10);
-    
-    leftLaneCar1.center = CGPointMake(leftLaneCar1.center.x, leftLaneCar1.center.y + 10);
-    leftLaneCar2.center = CGPointMake(leftLaneCar2.center.x, leftLaneCar2.center.y + 10);
-    leftLaneCar3.center = CGPointMake(leftLaneCar3.center.x, leftLaneCar3.center.y + 10);
 
     if (road1.center.y > 560)
         road1.center = CGPointMake(road1.center.x, -10);
@@ -71,12 +61,10 @@
     
 }
 
-
 -(void) newGame
 {
     
 }
-
 
 -(void) scoring
 {
@@ -117,7 +105,7 @@
 }
 
 - (void) changeLanes {
-
+    
 }
 
 -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -132,9 +120,7 @@
     scorer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(scoring) userInfo:nil repeats:YES];
     
     start = NO;
-    
-    playersCar.hidden = NO;
-    
+
     highScore.hidden = YES;
     developerName.hidden = YES;
     tapToStart.hidden = YES;
@@ -153,35 +139,36 @@
     //testCar2.center = CGPointMake(116, 250);
     //testCar3.center = CGPointMake(205, 250);
     //testCar4.center = CGPointMake(285, 250);
-    
-    //playerCar = [UIImage imageNamed:@"BlueCar.png"];
-    //playersCar.center = CGPointMake(199, 448);
-    //playerCarView = [[UIImageView alloc] initWithImage:playerCar];
-    //[self.view addSubview:playerCarView];
-    
 }
-
-
+//- (void) aMethod:(id)whichButton
+//{
+//    
+//}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     start = YES;
-    playersCar.hidden = NO;
     
+//    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+//    [button addTarget:self
+//               action:@selector(aMethod:)
+//     forControlEvents:UIControlEventTouchUpInside];
+//    [button setTitle:@"Show View" forState:UIControlStateNormal];
+//    button.frame = CGRectMake(80.0, 210.0, 160.0, 40.0);
+//    [_view addSubview:button];
     
+
     playerCar = [UIImage imageNamed:@"BlueCar.png"];
+
     playerCarView = [[UIImageView alloc] initWithImage:playerCar];
-    playerCarView.center = CGPointMake(199, 448);
+    playerCarView.center = CGPointMake(205, 448);
     [self.view addSubview:playerCarView];
-    
-    
-    
     
     self.view.userInteractionEnabled = YES;
     
     UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
     UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
-    
+
     // Setting the swipe direction.
     [swipeLeft setDirection:UISwipeGestureRecognizerDirectionLeft];
     [swipeRight setDirection:UISwipeGestureRecognizerDirectionRight];
