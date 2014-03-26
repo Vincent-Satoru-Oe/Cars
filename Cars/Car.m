@@ -9,16 +9,18 @@
 #import "Car.h"
 #import "ViewController.h"
 
-static NSInteger defaultSpeed = 5;
-
 @implementation Car
 
 -(id)initRandomCar {
     if (self = [super init]) {
         self.image = [UIImage imageNamed:@"BlueCar.png"];
+        self.imageView = [[UIImageView alloc] initWithImage:self.image];
         self.speed = defaultSpeed;
-        self.position = CGPointMake(l0x, 50);
+        self.position = CGPointMake(l0x, -50);
+        self.currentLane = 2;
         self.isPlayerCar = NO;
+        
+        [self refreshImageView];
     }
     return self;
 }
@@ -26,9 +28,13 @@ static NSInteger defaultSpeed = 5;
 -(id)initWithImage:(NSString *)imageName andSpeed:(NSInteger)speed {
     if (self = [super init]) {
         self.image = [UIImage imageNamed:imageName];
+        self.imageView = [[UIImageView alloc] initWithImage:self.image];
         self.speed = speed;
-        self.position = CGPointMake(l0x, 50);
+        self.position = CGPointMake(l0x, -50);
+        self.currentLane = 2;
         self.isPlayerCar = NO;
+        
+        [self refreshImageView];
     }
     return self;
 }
@@ -59,6 +65,7 @@ static NSInteger defaultSpeed = 5;
         } else {
             NSLog(@"Error Occurred in Car.moveLeft()");
         }
+        [self refreshImageView];
     }
 }
 
@@ -74,7 +81,13 @@ static NSInteger defaultSpeed = 5;
         } else {
             NSLog(@"Error Occurred in Car.moveLeft()");
         }
+        [self refreshImageView];
     }
+}
+
+-(void)moveDown {
+    self.position = CGPointMake(self.position.x, self.position.y + self.speed);
+    [self refreshImageView];
 }
 
 -(void)refreshImageView {

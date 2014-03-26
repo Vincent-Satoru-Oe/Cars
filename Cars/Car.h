@@ -22,5 +22,6 @@
 -(id) initPlayerCar;
 -(void) moveLeft;
 -(void) moveRight;
+-(void) moveDown;
 
 @end
