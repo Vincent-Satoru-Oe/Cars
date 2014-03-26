@@ -12,13 +12,15 @@
 
 @property UIImage *image;
 @property UIImageView *imageView;
-@property NSInteger *speed;
+@property NSInteger speed;
 @property CGPoint position;
-@property NSInteger *currentLane;
+@property NSInteger currentLane;
 @property BOOL isPlayerCar;
 
--(id) initWithImage:(NSString*)imageName andSpeed:(NSInteger*)speed;
+-(id) initWithImage:(NSString*)imageName andSpeed:(NSInteger)speed;
 -(id) initRandomCar;
 -(id) initPlayerCar;
+-(void) moveLeft;
+-(void) moveRight;
 
 @end

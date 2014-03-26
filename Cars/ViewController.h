@@ -13,10 +13,12 @@ int y;
 BOOL start;
 int scoreNumber;
 int highScore;
-static CGFloat l0x = 45;
-static CGFloat l1x = 125;
+
+static CGFloat l0x = 38;
+static CGFloat l1x = 116;
 static CGFloat l2x = 205;
 static CGFloat l3x = 285;
+static CGFloat defaultY = 400;
 
 @interface ViewController : UIViewController
 {

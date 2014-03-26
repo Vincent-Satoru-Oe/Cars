@@ -24,6 +24,7 @@
 -(void) movePlayerCar
 {
     [self hitCar];
+
     road9.center = CGPointMake(road9.center.x, road9.center.y + 10);
     road8.center = CGPointMake(road8.center.x, road8.center.y + 10);
     road7.center = CGPointMake(road7.center.x, road7.center.y + 10);
@@ -110,7 +111,7 @@
     lane1 = [[NSArray alloc] init];
     lane2 = [[NSArray alloc] init];
     lane3 = [[NSArray alloc] init];
-
+    
     highScore.hidden = YES;
     developerName.hidden = YES;
     tapToStart.hidden = YES;
@@ -126,7 +127,7 @@
     road1.center = CGPointMake(160, 548);
 
     timer = [NSTimer scheduledTimerWithTimeInterval:.05 target:self selector:@selector(movePlayerCar) userInfo:Nil repeats:YES];
-
+    
     scorer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(scoring) userInfo:nil repeats:YES];
 }
 
