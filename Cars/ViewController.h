@@ -17,6 +17,7 @@ static CGFloat l0x = 38;
 static CGFloat l1x = 116;
 static CGFloat l2x = 205;
 static CGFloat l3x = 285;
+static CGFloat defaultY = 400;
 
 @interface ViewController : UIViewController
 {
