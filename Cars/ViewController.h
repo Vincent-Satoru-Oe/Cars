@@ -14,22 +14,24 @@ BOOL start;
 int scoreNumber;
 int highScore;
 
-static CGFloat l0x = 38;
-static CGFloat l1x = 116;
-static CGFloat l2x = 205;
-static CGFloat l3x = 285;
-static CGFloat defaultY = 400;
+static NSInteger l0x = 38;
+static NSInteger l1x = 116;
+static NSInteger l2x = 205;
+static NSInteger l3x = 285;
+static NSInteger defaultY = 400;
+static NSInteger defaultSpeed = 10;
 
 @interface ViewController : UIViewController
 {
     NSTimer *timer;
     NSTimer *scorer;
     NSTimer *generator;
-    NSArray *lane0;
-    NSArray *lane1;
-    NSArray *lane2;
-    NSArray *lane3;
-
+    NSTimer *carSpawner;
+    NSMutableArray *lane0;
+    NSMutableArray *lane1;
+    NSMutableArray *lane2;
+    NSMutableArray *lane3;
+    
     IBOutlet UILabel *highScore;       // high score label
     IBOutlet UILabel *developerName;   // developer name label
     IBOutlet UILabel *tapToStart;      // tap to start label
@@ -58,8 +60,7 @@ static CGFloat defaultY = 400;
 -(void) scoring;             // number of cars cut off
 -(void) hitCar;              // hit another car
 -(void) endGame;             // when to end the game
-//-(void) changeLanes;         // changes lane of players car
--(NSString*) randomColor;
--(void) checkCollision;
+-(void) checkCollision;      // see if player hit a car
+-(void) spawnCar;            // spawn new car
 
 @end

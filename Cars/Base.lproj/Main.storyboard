@@ -78,13 +78,6 @@
                                 <color key="textColor" red="1" green="0.0" blue="0.086573815128913267" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Swipe To Move" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gRZ-cT-w4y">
-                                <rect key="frame" x="101" y="242" width="118" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.9765625" green="0.95179227905304165" blue="0.00018917686549495445" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -100,7 +93,6 @@
                         <outlet property="road7" destination="bob-3I-TIJ" id="EjG-Ys-fTE"/>
                         <outlet property="road8" destination="inc-pA-5AU" id="Jcu-Cb-4AO"/>
                         <outlet property="road9" destination="6LA-FZ-QpZ" id="GVW-yY-dTx"/>
-                        <outlet property="swipeToMove" destination="gRZ-cT-w4y" id="9tf-9Z-43q"/>
                         <outlet property="tapToStart" destination="sPv-B0-7J3" id="U6p-NV-NWv"/>
                     </connections>
                 </viewController>

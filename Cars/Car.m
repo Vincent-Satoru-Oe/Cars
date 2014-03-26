@@ -9,17 +9,25 @@
 #import "Car.h"
 #import "ViewController.h"
 
-static NSInteger defaultSpeed = 5;
-
 @implementation Car
-
+-(NSString*) randomColor {
+    NSArray *list = @[@"BlueCar.png", @"GreenCar.png", @"RedCar.png", @"YellowCar.png", @"PinkCar.png", @"OrangeCar.png"];
+    NSInteger randomIndex = arc4random() % [list count];
+    //NSString *temp = [self randomColor];
+    //NSLog(@"%@", temp);
+    return [list objectAtIndex:randomIndex];
+}
 -(id)initRandomCar {
     if (self = [super init]) {
-        self.image = [UIImage imageNamed:@"BlueCar.png"];
+        NSString *temp = [self randomColor];
+        self.image = [UIImage imageNamed:(@"%@", temp)];
+        self.imageView = [[UIImageView alloc] initWithImage:self.image];
         self.speed = defaultSpeed;
-        self.speed = defaultSpeed;
-        self.position = CGPointMake(l0x, 50);
+        self.position = CGPointMake(l0x, -50);
+        self.currentLane = 2;
         self.isPlayerCar = NO;
+        
+        [self refreshImageView];
     }
     return self;
 }
@@ -27,9 +35,13 @@ static NSInteger defaultSpeed = 5;
 -(id)initWithImage:(NSString *)imageName andSpeed:(NSInteger)speed {
     if (self = [super init]) {
         self.image = [UIImage imageNamed:imageName];
+        self.imageView = [[UIImageView alloc] initWithImage:self.image];
         self.speed = speed;
-        self.position = CGPointMake(l0x, 50);
+        self.position = CGPointMake(l0x, -50);
+        self.currentLane = 2;
         self.isPlayerCar = NO;
+        
+        [self refreshImageView];
     }
     return self;
 }
@@ -38,11 +50,6 @@ static NSInteger defaultSpeed = 5;
     if (self = [super init]) {
         self.image = [UIImage imageNamed:@"BlueCar.png"];
         self.imageView = [[UIImageView alloc] initWithImage:self.image];
-        self.imageView.center = CGPointMake(199, 400);
-        self.speed = defaultSpeed;
-        self.position = CGPointMake(l2x, 448);
-        self.currentLane = 2;
-        self.isPlayerCar = YES;
         self.speed = defaultSpeed;
         self.position = CGPointMake(l2x, defaultY);
         self.currentLane = 2;
@@ -86,6 +93,11 @@ static NSInteger defaultSpeed = 5;
         }
         [self refreshImageView];
     }
+}
+
+-(void)moveDown {
+    self.position = CGPointMake(self.position.x, self.position.y + self.speed);
+    [self refreshImageView];
 }
 
 -(void)refreshImageView {
