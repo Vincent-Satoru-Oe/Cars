@@ -20,10 +20,20 @@
 - (IBAction)generateNewCars {
     
 }
+-(void) checkCollision {
+//    if ((playerCar.imageView.center - carInLane.imageView.center) <= 69)
+//        [self endGame];
+}
+-(NSString*) randomColor {
+    NSArray *list = @[@"BlueCar.png", @"GreenCar.png", @"RedCar.png", @"YellowCar.png", @"PinkCar.png", @"OrangeCar.png"];
+    NSInteger randomIndex = arc4random() % [list count];
+    //NSString *temp = [self randomColor];
+    //NSLog(@"%@", temp);
+    return [list objectAtIndex:randomIndex];
+}
 
--(void) movePlayerCar
-{
-    [self hitCar];
+-(void) movePlayerCar {
+    [self checkCollision];
 
     road9.center = CGPointMake(road9.center.x, road9.center.y + 10);
     road8.center = CGPointMake(road8.center.x, road8.center.y + 10);
@@ -55,47 +65,41 @@
         road9.center = CGPointMake(road9.center.x, -10);
 }
 
--(void) moveSurroundingCars
-{
+-(void) moveSurroundingCars {
     
 }
 
--(void) newGame
-{
-    
+-(void) newGame {
+    start = YES;
 }
 
--(void) scoring
-{
+-(void) scoring {
     scoreNumber++;
     score.text = [NSString stringWithFormat:@"Score: %i", scoreNumber];
 }
 
--(void) hitCar
-{
+-(void) hitCar {
     
 }
 
-
--(void) endGame
-{
+-(void) endGame {
     //if (scoreNumber > highScore) {
     //    highScore = scoreNumber;
     //    [[NSUserDefaults standardUserDefaults] setInteger:highScore forKey:@"High Score Saved"];
     //}
     [timer invalidate];
     [scorer invalidate];
+    [self performSelector:@selector(newGame) withObject:nil afterDelay:.5];
 }
 
 - (void)handleSwipe:(UISwipeGestureRecognizer *)swipe {
     
-    if (swipe.direction == UISwipeGestureRecognizerDirectionLeft) {
-        // Move car left by calling function
-    }
-    if (swipe.direction == UISwipeGestureRecognizerDirectionRight) {
+    if (swipe.direction == UISwipeGestureRecognizerDirectionLeft)
+        [playerCar moveLeft];
+
+    if (swipe.direction == UISwipeGestureRecognizerDirectionRight)
         // Move car right by calling function
-        NSLog(@"swipeRight");
-    }
+        [playerCar moveRight];
 }
 
 -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -115,6 +119,7 @@
     highScore.hidden = YES;
     developerName.hidden = YES;
     tapToStart.hidden = YES;
+    swipeToMove.hidden = YES;
 
     road9.center = CGPointMake(160, 36);
     road8.center = CGPointMake(160, 100);
@@ -131,8 +136,7 @@
     scorer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(scoring) userInfo:nil repeats:YES];
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     start = YES;
 
@@ -151,11 +155,9 @@
     // Adding the swipe gesture on image view
     [self.view addGestureRecognizer:swipeLeft];
     [self.view addGestureRecognizer:swipeRight];
-
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }

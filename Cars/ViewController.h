@@ -24,14 +24,16 @@ static CGFloat defaultY = 400;
 {
     NSTimer *timer;
     NSTimer *scorer;
+    NSTimer *generator;
     NSArray *lane0;
     NSArray *lane1;
     NSArray *lane2;
     NSArray *lane3;
 
-    IBOutlet UILabel *highScore;       // high score
-    IBOutlet UILabel *developerName;   // developer name
-    IBOutlet UILabel *tapToStart;      // label that says tap to start
+    IBOutlet UILabel *highScore;       // high score label
+    IBOutlet UILabel *developerName;   // developer name label
+    IBOutlet UILabel *tapToStart;      // tap to start label
+    IBOutlet UILabel *swipeToMove;     // swipe to start label
 
     Car *playerCar;
     UIImageView *playerCarView;
@@ -56,6 +58,8 @@ static CGFloat defaultY = 400;
 -(void) scoring;             // number of cars cut off
 -(void) hitCar;              // hit another car
 -(void) endGame;             // when to end the game
--(void) changeLanes;         // changes lane of players car
+//-(void) changeLanes;         // changes lane of players car
+-(NSString*) randomColor;
+-(void) checkCollision;
 
 @end

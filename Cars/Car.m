@@ -47,7 +47,7 @@ static NSInteger defaultSpeed = 5;
         self.position = CGPointMake(l2x, defaultY);
         self.currentLane = 2;
         self.isPlayerCar = YES;
-        
+
         [self refreshImageView];
     }
     return self;
@@ -58,13 +58,17 @@ static NSInteger defaultSpeed = 5;
         self.currentLane = self.currentLane - 1;
         if (self.currentLane == 2) {
             self.position = CGPointMake(l2x, defaultY);
-        } else if (self.currentLane == 1) {
+        }
+        else if (self.currentLane == 1) {
             self.position = CGPointMake(l1x, defaultY);
-        } else if (self.currentLane == 0) {
+        }
+        else if (self.currentLane == 0) {
             self.position = CGPointMake(l0x, defaultY);
-        } else {
+        }
+        else {
             NSLog(@"Error Occurred in Car.moveLeft()");
         }
+        [self refreshImageView];
     }
 }
 
@@ -80,6 +84,7 @@ static NSInteger defaultSpeed = 5;
         } else {
             NSLog(@"Error Occurred in Car.moveLeft()");
         }
+        [self refreshImageView];
     }
 }
 
