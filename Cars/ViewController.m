@@ -59,24 +59,31 @@
 
 -(void) moveSurroundingCars
 {
+    NSMutableArray *carsToRemove = [[NSMutableArray alloc] init];
     for (Car *car in lane0) {
         [car moveDown];
         if (car.position.y > 560) {
-            [lane0 removeObject:car];
+            [carsToRemove addObject:car];
         }
     }
+    for (Car *car in carsToRemove) {
+        [lane0 removeObject:car];
+    }
+    NSLog(@"break1");
     for (Car *car in lane1) {
         [car moveDown];
         if (car.position.y > 560) {
             [lane1 removeObject:car];
         }
     }
+    NSLog(@"break1");
     for (Car *car in lane2) {
         [car moveDown];
         if (car.position.y > 560) {
             [lane2 removeObject:car];
         }
     }
+    NSLog(@"break1");
     for (Car *car in lane3) {
         [car moveDown];
         if (car.position.y > 560) {
