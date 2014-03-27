@@ -25,15 +25,17 @@ static NSInteger defaultSpeed = 10;
 {
     NSTimer *timer;
     NSTimer *scorer;
+    NSTimer *generator;
     NSTimer *carSpawner;
     NSMutableArray *lane0;
     NSMutableArray *lane1;
     NSMutableArray *lane2;
     NSMutableArray *lane3;
-
-    IBOutlet UILabel *highScore;       // high score
-    IBOutlet UILabel *developerName;   // developer name
-    IBOutlet UILabel *tapToStart;      // label that says tap to start
+    
+    IBOutlet UILabel *highScore;       // high score label
+    IBOutlet UILabel *developerName;   // developer name label
+    IBOutlet UILabel *tapToStart;      // tap to start label
+    IBOutlet UILabel *swipeToMove;     // swipe to start label
 
     Car *playerCar;
     UIImageView *playerCarView;
@@ -58,7 +60,7 @@ static NSInteger defaultSpeed = 10;
 -(void) scoring;             // number of cars cut off
 -(void) hitCar;              // hit another car
 -(void) endGame;             // when to end the game
--(void) changeLanes;         // changes lane of players car
--(void) spawnCar;
+-(void) checkCollision;      // see if player hit a car
+-(void) spawnCar;            // spawn new car
 
 @end

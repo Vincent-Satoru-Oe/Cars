@@ -18,13 +18,33 @@
 @implementation ViewController
 
 - (IBAction)generateNewCars {
-    
+
+}
+-(void) checkCollision {
+    for (Car *car in lane0) {
+        if (playerCar.imageView.center.y - car.imageView.center.y <= 69) { //&& (playerCar.currentLane == 0)
+                [self endGame];
+        }
+    }
+    for (Car *car in lane1) {
+        if ((playerCar.imageView.center.y - car.imageView.center.y) <= 69) {
+            [self endGame];
+        }
+    }
+    for (Car *car in lane2) {
+        if ((playerCar.imageView.center.y - car.imageView.center.y <= 69) && (playerCar.currentLane == 2) ) {
+            [self endGame];
+        }
+    }
+    for (Car *car in lane3) {
+        if (abs(playerCar.imageView.center.y - car.imageView.center.y) <= 69) {
+            [self endGame];
+        }
+    }
 }
 
--(void) movePlayerCar
-{
-    [self hitCar];
-
+-(void) movePlayerCar {
+    
     road9.center = CGPointMake(road9.center.x, road9.center.y + defaultSpeed);
     road8.center = CGPointMake(road8.center.x, road8.center.y + defaultSpeed);
     road7.center = CGPointMake(road7.center.x, road7.center.y + defaultSpeed);
@@ -34,7 +54,7 @@
     road3.center = CGPointMake(road3.center.x, road3.center.y + defaultSpeed);
     road2.center = CGPointMake(road2.center.x, road2.center.y + defaultSpeed);
     road1.center = CGPointMake(road1.center.x, road1.center.y + defaultSpeed);
-
+    
     if (road1.center.y > 560)
         road1.center = CGPointMake(road1.center.x, -10);
     else if (road2.center.y > 560)
@@ -53,8 +73,10 @@
         road8.center = CGPointMake(road8.center.x, -10);
     else if (road9.center.y > 560)
         road9.center = CGPointMake(road9.center.x, -10);
-    
+
     [self moveSurroundingCars];
+    [self checkCollision];
+
 }
 
 -(void) moveSurroundingCars
@@ -92,19 +114,21 @@
     }
 }
 
--(void) newGame
-{
-    
+-(void) newGame {
+    start = YES;
+    //playerCar = [[Car alloc] initPlayerCar];
+    highScore.hidden = NO;
+    developerName.hidden = NO;
+    tapToStart.hidden = NO;
+    swipeToMove.hidden = NO;
 }
 
--(void) scoring
-{
+-(void) scoring {
     scoreNumber++;
     score.text = [NSString stringWithFormat:@"Score: %i", scoreNumber];
 }
 
--(void) hitCar
-{
+-(void) hitCar {
     
 }
 
@@ -123,35 +147,31 @@
     [self.view addSubview:newCar.imageView];
 }
 
-
--(void) endGame
-{
+-(void) endGame {
     //if (scoreNumber > highScore) {
     //    highScore = scoreNumber;
     //    [[NSUserDefaults standardUserDefaults] setInteger:highScore forKey:@"High Score Saved"];
     //}
+    
+    playerCar.position = CGPointMake(l2x, defaultY);
     [timer invalidate];
     [scorer invalidate];
+    [carSpawner invalidate];
+    [self performSelector:@selector(newGame) withObject:nil afterDelay:.5];
 }
 
 - (void)handleSwipe:(UISwipeGestureRecognizer *)swipe {
-    
-    if (swipe.direction == UISwipeGestureRecognizerDirectionLeft) {
-        // Move car left by calling function
-        NSLog(@"swipeLeft");
+    if (swipe.direction == UISwipeGestureRecognizerDirectionLeft)
         [playerCar moveLeft];
-    }
-    if (swipe.direction == UISwipeGestureRecognizerDirectionRight) {
+
+    if (swipe.direction == UISwipeGestureRecognizerDirectionRight)
         // Move car right by calling function
-        NSLog(@"swipeRight");
         [playerCar moveRight];
-    }
 }
 
 -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    if (start == YES) {
+    if (start == YES)
         [self startGame];
-    }
 }
 
 - (void)startGame {
@@ -165,6 +185,7 @@
     highScore.hidden = YES;
     developerName.hidden = YES;
     tapToStart.hidden = YES;
+    swipeToMove.hidden = YES;
 
     road9.center = CGPointMake(160, 36);
     road8.center = CGPointMake(160, 100);
@@ -177,18 +198,17 @@
     road1.center = CGPointMake(160, 548);
 
     timer = [NSTimer scheduledTimerWithTimeInterval:.05 target:self selector:@selector(movePlayerCar) userInfo:Nil repeats:YES];
-    
+
     scorer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(scoring) userInfo:nil repeats:YES];
-    
+
     carSpawner = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(spawnCar) userInfo:nil repeats:YES];
-    
+
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     start = YES;
-
+    
     playerCar = [[Car alloc] initPlayerCar];
     [self.view addSubview:playerCar.imageView];
 
@@ -204,11 +224,9 @@
     // Adding the swipe gesture on image view
     [self.view addGestureRecognizer:swipeLeft];
     [self.view addGestureRecognizer:swipeRight];
-
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }

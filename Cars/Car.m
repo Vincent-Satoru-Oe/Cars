@@ -10,16 +10,23 @@
 #import "ViewController.h"
 
 @implementation Car
-
+-(NSString*) randomColor {
+    NSArray *list = @[@"BlueCar.png", @"GreenCar.png", @"RedCar.png", @"YellowCar.png", @"PinkCar.png", @"OrangeCar.png"];
+    NSInteger randomIndex = arc4random() % [list count];
+    //NSString *temp = [self randomColor];
+    //NSLog(@"%@", temp);
+    return [list objectAtIndex:randomIndex];
+}
 -(id)initRandomCar {
     if (self = [super init]) {
-        self.image = [UIImage imageNamed:@"BlueCar.png"];
+        NSString *temp = [self randomColor];
+        self.image = [UIImage imageNamed:(@"%@", temp)];
         self.imageView = [[UIImageView alloc] initWithImage:self.image];
         self.speed = defaultSpeed;
         self.position = CGPointMake(l0x, -50);
-        self.currentLane = 2;
+        self.currentLane = arc4random() % 4;
         self.isPlayerCar = NO;
-        
+
         [self refreshImageView];
     }
     return self;
@@ -31,7 +38,7 @@
         self.imageView = [[UIImageView alloc] initWithImage:self.image];
         self.speed = speed;
         self.position = CGPointMake(l0x, -50);
-        self.currentLane = 2;
+        self.currentLane = arc4random();
         self.isPlayerCar = NO;
         
         [self refreshImageView];
@@ -47,7 +54,7 @@
         self.position = CGPointMake(l2x, defaultY);
         self.currentLane = 2;
         self.isPlayerCar = YES;
-        
+
         [self refreshImageView];
     }
     return self;
@@ -58,11 +65,14 @@
         self.currentLane = self.currentLane - 1;
         if (self.currentLane == 2) {
             self.position = CGPointMake(l2x, defaultY);
-        } else if (self.currentLane == 1) {
+        }
+        else if (self.currentLane == 1) {
             self.position = CGPointMake(l1x, defaultY);
-        } else if (self.currentLane == 0) {
+        }
+        else if (self.currentLane == 0) {
             self.position = CGPointMake(l0x, defaultY);
-        } else {
+        }
+        else {
             NSLog(@"Error Occurred in Car.moveLeft()");
         }
         [self refreshImageView];
@@ -70,15 +80,21 @@
 }
 
 -(void)moveRight {
-    if (self.currentLane < 3) {
+    if (self.currentLane < 3)
+    {
         self.currentLane = self.currentLane + 1;
-        if (self.currentLane == 1) {
+        
+        if (self.currentLane == 1)
+        {
             self.position = CGPointMake(l1x, defaultY);
-        } else if (self.currentLane == 2) {
+        }
+        else if (self.currentLane == 2) {
             self.position = CGPointMake(l2x, defaultY);
-        } else if (self.currentLane == 3) {
+        }
+        else if (self.currentLane == 3) {
             self.position = CGPointMake(l3x, defaultY);
-        } else {
+        }
+        else {
             NSLog(@"Error Occurred in Car.moveLeft()");
         }
         [self refreshImageView];
