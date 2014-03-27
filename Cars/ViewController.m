@@ -22,27 +22,23 @@
 }
 -(void) checkCollision {
     for (Car *car in lane0) {
-        if (abs(playerCar.imageView.center.y - car.imageView.center.y) <= 69) {
+        if (playerCar.imageView.center.y - car.imageView.center.y <= 69) { //&& (playerCar.currentLane == 0)
                 [self endGame];
-            //[lane0 removeObject:car];
         }
     }
     for (Car *car in lane1) {
-        if (abs(playerCar.imageView.center.y - car.imageView.center.y) <= 69) {
+        if ((playerCar.imageView.center.y - car.imageView.center.y) <= 69) {
             [self endGame];
-            //[lane1 removeObject:car];
         }
     }
     for (Car *car in lane2) {
-        if (abs(playerCar.imageView.center.y - car.imageView.center.y) <= 69) {
+        if ((playerCar.imageView.center.y - car.imageView.center.y <= 69) && (playerCar.currentLane == 2) ) {
             [self endGame];
-            //[lane2 removeObject:car];
         }
     }
     for (Car *car in lane3) {
         if (abs(playerCar.imageView.center.y - car.imageView.center.y) <= 69) {
             [self endGame];
-            //[lane3 removeObject:car];
         }
     }
 }
