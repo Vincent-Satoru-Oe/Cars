@@ -24,7 +24,7 @@
         self.imageView = [[UIImageView alloc] initWithImage:self.image];
         self.speed = defaultSpeed;
         self.position = CGPointMake(l0x, -50);
-        self.currentLane = arc4random() % 4;
+        self.currentLane = 0;
         self.isPlayerCar = NO;
 
         [self refreshImageView];
@@ -38,7 +38,7 @@
         self.imageView = [[UIImageView alloc] initWithImage:self.image];
         self.speed = speed;
         self.position = CGPointMake(l0x, -50);
-        self.currentLane = arc4random();
+        self.currentLane = 0;
         self.isPlayerCar = NO;
         
         [self refreshImageView];

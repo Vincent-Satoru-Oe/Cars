@@ -19,7 +19,7 @@ static NSInteger l1x = 116;
 static NSInteger l2x = 205;
 static NSInteger l3x = 285;
 static NSInteger defaultY = 400;
-static NSInteger defaultSpeed = 10;
+static NSInteger defaultSpeed = 5;
 
 @interface ViewController : UIViewController
 {
@@ -58,7 +58,6 @@ static NSInteger defaultSpeed = 10;
 -(void) moveSurroundingCars; // move surrounding cars
 -(void) newGame;             // start a new gae
 -(void) scoring;             // number of cars cut off
--(void) hitCar;              // hit another car
 -(void) endGame;             // when to end the game
 -(void) checkCollision;      // see if player hit a car
 -(void) spawnCar;            // spawn new car

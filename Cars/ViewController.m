@@ -22,22 +22,22 @@
 }
 -(void) checkCollision {
     for (Car *car in lane0) {
-        if (playerCar.imageView.center.y - car.imageView.center.y <= 69) { //&& (playerCar.currentLane == 0)
+        if ((playerCar.imageView.center.y - car.imageView.center.y <= 69) && (playerCar.currentLane == 0)) {
                 [self endGame];
         }
     }
     for (Car *car in lane1) {
-        if ((playerCar.imageView.center.y - car.imageView.center.y) <= 69) {
+        if ((playerCar.imageView.center.y - car.imageView.center.y <= 69) && (playerCar.currentLane == 1)) {
             [self endGame];
         }
     }
     for (Car *car in lane2) {
-        if ((playerCar.imageView.center.y - car.imageView.center.y <= 69) && (playerCar.currentLane == 2) ) {
+        if ((playerCar.imageView.center.y - car.imageView.center.y <= 69) && (playerCar.currentLane == 2)) {
             [self endGame];
         }
     }
     for (Car *car in lane3) {
-        if (abs(playerCar.imageView.center.y - car.imageView.center.y) <= 69) {
+        if ((playerCar.imageView.center.y - car.imageView.center.y <= 69) && (playerCar.currentLane == 3)) {
             [self endGame];
         }
     }
@@ -85,24 +85,28 @@
         [car moveDown];
         if (car.position.y > 560) {
             [lane0 removeObject:car];
+            break;
         }
     }
     for (Car *car in lane1) {
         [car moveDown];
         if (car.position.y > 560) {
             [lane1 removeObject:car];
+            break;
         }
     }
     for (Car *car in lane2) {
         [car moveDown];
         if (car.position.y > 560) {
             [lane2 removeObject:car];
+            break;
         }
     }
     for (Car *car in lane3) {
         [car moveDown];
         if (car.position.y > 560) {
             [lane3 removeObject:car];
+            break;
         }
     }
 }
@@ -119,10 +123,6 @@
 -(void) scoring {
     scoreNumber++;
     score.text = [NSString stringWithFormat:@"Score: %i", scoreNumber];
-}
-
--(void) hitCar {
-    
 }
 
 -(void) spawnCar {
@@ -190,11 +190,11 @@
     road2.center = CGPointMake(160, 484);
     road1.center = CGPointMake(160, 548);
 
-    timer = [NSTimer scheduledTimerWithTimeInterval:.05 target:self selector:@selector(movePlayerCar) userInfo:Nil repeats:YES];
+    timer = [NSTimer scheduledTimerWithTimeInterval:.01 target:self selector:@selector(movePlayerCar) userInfo:Nil repeats:YES];
 
     scorer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(scoring) userInfo:nil repeats:YES];
 
-    carSpawner = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(spawnCar) userInfo:nil repeats:YES];
+    carSpawner = [NSTimer scheduledTimerWithTimeInterval:.5 target:self selector:@selector(spawnCar) userInfo:nil repeats:YES];
 
 }
 
