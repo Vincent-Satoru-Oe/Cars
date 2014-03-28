@@ -19,13 +19,12 @@ static NSInteger l1x = 116;
 static NSInteger l2x = 205;
 static NSInteger l3x = 285;
 static NSInteger defaultY = 400;
-static NSInteger defaultSpeed = 5;
+static NSInteger defaultSpeed = 1;
 
 @interface ViewController : UIViewController
 {
     NSTimer *timer;
     NSTimer *scorer;
-    NSTimer *generator;
     NSTimer *carSpawner;
     NSMutableArray *lane0;
     NSMutableArray *lane1;
@@ -61,5 +60,6 @@ static NSInteger defaultSpeed = 5;
 -(void) endGame;             // when to end the game
 -(void) checkCollision;      // see if player hit a car
 -(void) spawnCar;            // spawn new car
+-(void) deleteAllCars;
 
 @end

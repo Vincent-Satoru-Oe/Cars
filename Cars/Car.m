@@ -13,14 +13,12 @@
 -(NSString*) randomColor {
     NSArray *list = @[@"BlueCar.png", @"GreenCar.png", @"RedCar.png", @"YellowCar.png", @"PinkCar.png", @"OrangeCar.png"];
     NSInteger randomIndex = arc4random() % [list count];
-    //NSString *temp = [self randomColor];
-    //NSLog(@"%@", temp);
     return [list objectAtIndex:randomIndex];
 }
 -(id)initRandomCar {
     if (self = [super init]) {
         NSString *temp = [self randomColor];
-        self.image = [UIImage imageNamed:(@"%@", temp)];
+        self.image = [UIImage imageNamed:(temp)];
         self.imageView = [[UIImageView alloc] initWithImage:self.image];
         self.speed = defaultSpeed;
         self.position = CGPointMake(l0x, -50);
@@ -40,7 +38,7 @@
         self.position = CGPointMake(l0x, -50);
         self.currentLane = 0;
         self.isPlayerCar = NO;
-        
+
         [self refreshImageView];
     }
     return self;
