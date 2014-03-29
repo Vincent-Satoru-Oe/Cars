@@ -206,7 +206,7 @@
     developerName.hidden = YES;
     tapToStart.hidden = YES;
     swipeToMove.hidden = YES;
-    
+
     road9.center = CGPointMake(160, 36);
     road8.center = CGPointMake(160, 100);
     road7.center = CGPointMake(160, 164);
