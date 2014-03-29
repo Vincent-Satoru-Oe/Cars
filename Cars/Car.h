@@ -24,5 +24,6 @@
 -(void) moveRight;
 -(void) moveDown;
 -(NSString*) randomColor;
+-(void)refreshImageView;
 
 @end

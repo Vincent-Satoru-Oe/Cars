@@ -57,13 +57,6 @@
                                 <rect key="frame" x="70" y="531" width="180" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HighScore" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qhb-J5-VKG">
-                                <rect key="frame" x="120" y="109" width="81" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.056649805392311396" green="0.96898155561572363" blue="0.98294005102040816" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tap To Start" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sPv-B0-7J3">
                                 <rect key="frame" x="114" y="177" width="92" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -72,10 +65,24 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DeveloperName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B8f-g4-x3a">
-                                <rect key="frame" x="98" y="47" width="124" height="21"/>
+                                <rect key="frame" x="98" y="109" width="124" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.086573815128913267" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1xd-Ai-A84">
+                                <rect key="frame" x="20" y="13" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.9833984375" green="0.96137890368136858" blue="0.0095422368701999095" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="High Score:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mec-d7-aWe">
+                                <rect key="frame" x="20" y="42" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.69749816381577778" blue="0.99214764030612246" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -83,7 +90,7 @@
                     </view>
                     <connections>
                         <outlet property="developerName" destination="B8f-g4-x3a" id="ugQ-Fb-oDW"/>
-                        <outlet property="highScore" destination="qhb-J5-VKG" id="LXb-S7-uTH"/>
+                        <outlet property="highestScore" destination="mec-d7-aWe" id="BRg-0b-aPg"/>
                         <outlet property="road1" destination="2vU-hL-19P" id="SW3-d3-1zD"/>
                         <outlet property="road2" destination="Ft2-9m-CRX" id="xtt-M8-VjU"/>
                         <outlet property="road3" destination="Meu-Nu-Fjx" id="wHk-Qc-1c0"/>
@@ -93,6 +100,7 @@
                         <outlet property="road7" destination="bob-3I-TIJ" id="EjG-Ys-fTE"/>
                         <outlet property="road8" destination="inc-pA-5AU" id="Jcu-Cb-4AO"/>
                         <outlet property="road9" destination="6LA-FZ-QpZ" id="GVW-yY-dTx"/>
+                        <outlet property="score" destination="1xd-Ai-A84" id="W3p-V6-bEC"/>
                         <outlet property="tapToStart" destination="sPv-B0-7J3" id="U6p-NV-NWv"/>
                     </connections>
                 </viewController>

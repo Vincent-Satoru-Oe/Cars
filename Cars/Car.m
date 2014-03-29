@@ -8,6 +8,7 @@
 
 #import "Car.h"
 #import "ViewController.h"
+#include <stdlib.h>
 
 #define randomValue() (arc4random() / 4294967296)
 
@@ -21,9 +22,8 @@
 
 -(id)initRandomCar {
     if (self = [super init]) {
-        NSLog(@"Spawning a car");
         NSString *temp = [self randomColor];
-        self.image = [UIImage imageNamed:(@"%@", temp)];
+        self.image = [UIImage imageNamed:(temp)];
         self.imageView = [[UIImageView alloc] initWithImage:self.image];
         
         NSArray *speedDistribution = [NSArray arrayWithObjects:
@@ -42,10 +42,8 @@
         float speedValue = arc4random() % 1000;
         int i = 0;
         while (speedValue >= [[speedDistribution objectAtIndex:i] floatValue]) {
-            NSLog(@"in here");
             i = i + 1;
         }
-        NSLog(@"value of i: %d", i);
         self.speed = (float)i/2.0;
         self.currentLane = arc4random() % 4;
         if (self.currentLane == 0) {
@@ -58,7 +56,7 @@
             self.position = CGPointMake(l3x, top);
         }
         self.isPlayerCar = NO;
-
+    
         [self refreshImageView];
     }
     return self;
@@ -72,7 +70,7 @@
         self.position = CGPointMake(l0x, top);
         self.currentLane = 0;
         self.isPlayerCar = NO;
-        
+
         [self refreshImageView];
     }
     return self;

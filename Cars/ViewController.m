@@ -6,10 +6,9 @@
 //  Copyright (c) 2014 Eric Sutton. All rights reserved.
 //
 
-//New line here
-
 #import "ViewController.h"
 #import "Car.h"
+#include "math.h"
 
 @interface ViewController ()
 
@@ -19,11 +18,7 @@
 
 @implementation ViewController
 
-- (IBAction)generateNewCars {
-
-}
 -(void) checkCollision {
-    
     NSInteger lane = playerCar.currentLane;
     if (lane == 0) {
         for (Car *car in lane0) {
@@ -51,12 +46,10 @@
                 [self endGame];
             }
         }
-
     }
 }
 
 -(void) movePlayerCar {
-    
     road9.center = CGPointMake(road9.center.x, road9.center.y + defaultSpeed);
     road8.center = CGPointMake(road8.center.x, road8.center.y + defaultSpeed);
     road7.center = CGPointMake(road7.center.x, road7.center.y + defaultSpeed);
@@ -66,7 +59,7 @@
     road3.center = CGPointMake(road3.center.x, road3.center.y + defaultSpeed);
     road2.center = CGPointMake(road2.center.x, road2.center.y + defaultSpeed);
     road1.center = CGPointMake(road1.center.x, road1.center.y + defaultSpeed);
-    
+
     if (road1.center.y > 560)
         road1.center = CGPointMake(road1.center.x, -10);
     else if (road2.center.y > 560)
@@ -88,11 +81,10 @@
 
     [self moveSurroundingCars];
     [self checkCollision];
-
 }
 
--(void) moveSurroundingCars
-{
+-(void) moveSurroundingCars {
+    NSLog(@"lane0 count before; %d", [lane0 count]);
     for (Car *car in lane0) {
         [car moveDown];
         if (car.position.y > 560) {
@@ -100,6 +92,7 @@
             break;
         }
     }
+    NSLog(@"lane0 count after; %d", [lane0 count]);
     for (Car *car in lane1) {
         [car moveDown];
         if (car.position.y > 560) {
@@ -124,12 +117,14 @@
 }
 
 -(void) newGame {
-    start = YES;
-    //playerCar = [[Car alloc] initPlayerCar];
-    highScore.hidden = NO;
+    scoreNumber = 0;
+    highestScore.hidden = NO;
     developerName.hidden = NO;
     tapToStart.hidden = NO;
     swipeToMove.hidden = NO;
+    start = YES;
+    score.text = [NSString stringWithFormat:@"Score: "];
+    highestScore.text = [NSString stringWithFormat:@"High Score: %i", highScore];
 }
 
 -(void) scoring {
@@ -139,7 +134,6 @@
 
 -(void) willSpawnCar {
     float v = randomValue();
-    
 }
 
 -(void) spawnCar {
@@ -155,18 +149,51 @@
     }
     [self.view addSubview:newCar.imageView];
 }
+-(void) deletePlayerCar {
+    [playerCar.imageView removeFromSuperview];
+    playerCar.imageView = nil;
+    playerCar.image = nil;
+    playerCar = nil;
+}
+-(void) deleteAllCars {
+    NSLog(@"lane0 count; %d", [lane0 count]);
+    NSLog(@"lane1 count; %d", [lane1 count]);
+    NSLog(@"lane2 count; %d", [lane2 count]);
+    NSLog(@"lane3 count; %d", [lane3 count]);
+    for (int i = 0; i < [lane0 count]; i++)
+    {
+        Car *cars = lane0[i];
+        [cars.imageView removeFromSuperview];
+        [lane0 removeObjectAtIndex:i];
+        cars = nil;
+    } for (int i = 0; i < [lane1 count]; i++) {
+        Car *cars = lane1[i];
+        [cars.imageView removeFromSuperview];
+        [lane1 removeObjectAtIndex:i];
+        cars = nil;
+    } for (int i = 0; i < [lane2 count]; i++) {
+        Car *cars = lane2[i];
+        [cars.imageView removeFromSuperview];
+        [lane2 removeObjectAtIndex:i];
+        cars = nil;
+    } for (int i = 0; i < [lane3 count]; i++) {
+        Car *cars = lane3[i];
+        [cars.imageView removeFromSuperview];
+        [lane3 removeObjectAtIndex:i];
+        cars = nil;
+    }
+}
 
 -(void) endGame {
-    //if (scoreNumber > highScore) {
-    //    highScore = scoreNumber;
-    //    [[NSUserDefaults standardUserDefaults] setInteger:highScore forKey:@"High Score Saved"];
-    //}
+    if (scoreNumber > highScore) {
+        highScore = scoreNumber;
+        [[NSUserDefaults standardUserDefaults] setInteger:highScore forKey:@"High Score Saved"];
+    }
     
-    playerCar.position = CGPointMake(l2x, defaultY);
     [timer invalidate];
     [scorer invalidate];
     [carSpawner invalidate];
-    [self performSelector:@selector(newGame) withObject:nil afterDelay:.5];
+    [self performSelector:@selector(newGame) withObject:nil afterDelay:2];
 }
 
 - (void)handleSwipe:(UISwipeGestureRecognizer *)swipe {
@@ -174,16 +201,22 @@
         [playerCar moveLeft];
 
     if (swipe.direction == UISwipeGestureRecognizerDirectionRight)
-        // Move car right by calling function
         [playerCar moveRight];
 }
 
 -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    if (start == YES)
+    if (start == YES) {
         [self startGame];
+    }
 }
 
 - (void)startGame {
+    [self deleteAllCars];
+    [self deletePlayerCar];
+
+    playerCar = [[Car alloc] initPlayerCar];
+    [self.view addSubview:playerCar.imageView];
+
     start = NO;
     
     alpha = 1;
@@ -192,12 +225,12 @@
     lane1 = [[NSMutableArray alloc] init];
     lane2 = [[NSMutableArray alloc] init];
     lane3 = [[NSMutableArray alloc] init];
-    
-    highScore.hidden = YES;
+
+    highestScore.hidden = YES;
     developerName.hidden = YES;
     tapToStart.hidden = YES;
     swipeToMove.hidden = YES;
-
+    
     road9.center = CGPointMake(160, 36);
     road8.center = CGPointMake(160, 100);
     road7.center = CGPointMake(160, 164);
@@ -208,12 +241,11 @@
     road2.center = CGPointMake(160, 484);
     road1.center = CGPointMake(160, 548);
 
-    timer = [NSTimer scheduledTimerWithTimeInterval:.01 target:self selector:@selector(movePlayerCar) userInfo:Nil repeats:YES];
+    timer = [NSTimer scheduledTimerWithTimeInterval:.03 target:self selector:@selector(movePlayerCar) userInfo:Nil repeats:YES];
 
     scorer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(scoring) userInfo:nil repeats:YES];
 
     carSpawner = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(spawnCar) userInfo:nil repeats:YES];
-
 }
 
 - (void)viewDidLoad {
@@ -222,7 +254,7 @@
     
     playerCar = [[Car alloc] initPlayerCar];
     [self.view addSubview:playerCar.imageView];
-
+    
     self.view.userInteractionEnabled = YES;
 
     UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
@@ -235,6 +267,9 @@
     // Adding the swipe gesture on image view
     [self.view addGestureRecognizer:swipeLeft];
     [self.view addGestureRecognizer:swipeRight];
+    
+    highScore = [[NSUserDefaults standardUserDefaults] integerForKey:@"High Score Saved"];
+    highestScore.text = [NSString stringWithFormat:@"High Score: %i", highScore];
 }
 
 - (void)didReceiveMemoryWarning {
