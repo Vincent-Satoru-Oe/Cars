@@ -34,16 +34,10 @@ static NSInteger defaultSpeed = 5;
     
     NSInteger alpha;
     
-    IBOutlet UILabel *highestScore;       // highest score label
+    IBOutlet UILabel *highestScore;    // highest score label
     IBOutlet UILabel *developerName;   // developer name label
     IBOutlet UILabel *tapToStart;      // tap to start label
     IBOutlet UILabel *swipeToMove;     // swipe to start label
-    
-    //IBOutlet UILabel *greenButton;
-    //IBOutlet UILabel *redButton;
-    
-    UIButton *greenButton;
-    UIButton *redButton;
 
     Car *playerCar;
     UIImageView *playerCarView;
