@@ -13,13 +13,14 @@ int y;
 BOOL start;
 int scoreNumber;
 int highScore;
+NSString *chosenColor;
 
 static NSInteger l0x = 38;
 static NSInteger l1x = 116;
 static NSInteger l2x = 205;
 static NSInteger l3x = 285;
-static NSInteger defaultY = 400;
-static NSInteger defaultSpeed = 1;
+static NSInteger defaultY = 335;
+static NSInteger defaultSpeed = 4;
 
 @interface ViewController : UIViewController
 {
@@ -31,10 +32,16 @@ static NSInteger defaultSpeed = 1;
     NSMutableArray *lane2;
     NSMutableArray *lane3;
     
-    IBOutlet UILabel *highScore;       // high score label
+    IBOutlet UILabel *highestScore;       // highest score label
     IBOutlet UILabel *developerName;   // developer name label
     IBOutlet UILabel *tapToStart;      // tap to start label
     IBOutlet UILabel *swipeToMove;     // swipe to start label
+    
+    //IBOutlet UILabel *greenButton;
+    //IBOutlet UILabel *redButton;
+    
+    UIButton *greenButton;
+    UIButton *redButton;
 
     Car *playerCar;
     UIImageView *playerCarView;
@@ -55,11 +62,14 @@ static NSInteger defaultSpeed = 1;
 
 -(void) movePlayerCar;       // moves players cars
 -(void) moveSurroundingCars; // move surrounding cars
--(void) newGame;             // start a new gae
+-(void) newGame;             // start a new game
 -(void) scoring;             // number of cars cut off
 -(void) endGame;             // when to end the game
 -(void) checkCollision;      // see if player hit a car
 -(void) spawnCar;            // spawn new car
 -(void) deleteAllCars;
+-(void) deletePlayerCar;
+-(void) button;
+-(void) click:(UIButton *) sender;
 
 @end

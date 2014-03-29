@@ -8,6 +8,7 @@
 
 #import "Car.h"
 #import "ViewController.h"
+#include <stdlib.h>
 
 @implementation Car
 -(NSString*) randomColor {
@@ -17,6 +18,7 @@
 }
 -(id)initRandomCar {
     if (self = [super init]) {
+        
         NSString *temp = [self randomColor];
         self.image = [UIImage imageNamed:(temp)];
         self.imageView = [[UIImageView alloc] initWithImage:self.image];
@@ -24,7 +26,7 @@
         self.position = CGPointMake(l0x, -50);
         self.currentLane = 0;
         self.isPlayerCar = NO;
-
+    
         [self refreshImageView];
     }
     return self;
@@ -55,6 +57,17 @@
 
         [self refreshImageView];
     }
+    return self;
+}
+-(id)changePlayerCar:(NSString *)color {
+    self.image = [UIImage imageNamed:color];
+    self.imageView = [[UIImageView alloc] initWithImage:self.image];
+    self.speed = defaultSpeed;
+    self.position = CGPointMake(l2x, defaultY);
+    self.currentLane = 2;
+    self.isPlayerCar = YES;
+    
+    [self refreshImageView];
     return self;
 }
 

@@ -16,32 +16,70 @@
 
 @implementation ViewController
 
+-(void) click:(UIButton *) sender {
+    NSLog(@"clicking the button worked");
+    [self deletePlayerCar];
+    playerCar.image = [UIImage imageNamed:@"RedCar.png"];
+    NSString *colorChange = @"RedCar.png";
+
+    playerCar = [[Car alloc] changePlayerCar:colorChange];
+
+    playerCar.imageView = [[UIImageView alloc] initWithImage:playerCar.image];
+    [self.view addSubview:playerCar.imageView];
+    [playerCar refreshImageView];
+    chosenColor = @"RedCar.png";
+
+}
+
+-(void) button {
+    
+    UILabel *redLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, 30, 30)];
+    [redLabel setText:@""];
+    
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+    [view setUserInteractionEnabled:NO];
+
+    [view addSubview:redLabel];
+
+    UIButton *btnRed = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btnRed addSubview:view];
+    [btnRed setFrame:CGRectMake(100, 400, 30, 30)];
+    [btnRed setBackgroundColor: [UIColor redColor]];
+    [btnRed addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:btnRed];
+}
 -(void) checkCollision {
-    int upper = 70;
-    int lower = 68;
-    int a = playerCar.imageView.center.y;
-    for (Car *car in lane0) {
-        int b = car.imageView.center.y;
-        
-        if ( (a - b < upper) && (playerCar.currentLane == 0) && (a - b > lower) )  {
+    int upper = 66;
+    int lower = 0;
+    if (playerCar.currentLane == 0) {
+        for (Car *car in lane0) {
+            if ( (abs(playerCar.imageView.center.y - car.imageView.center.y) < upper) && (playerCar.currentLane == 0) && ((abs(playerCar.imageView.center.y - car.imageView.center.y) > lower))) {
                 [self endGame];
+            }
         }
     }
-//    for (Car *car in lane1) {
-//        if ((playerCar.imageView.center.y - car.imageView.center.y == 69) && (playerCar.currentLane == 1)) {
-//            [self endGame];
-//        }
-//    }
-//    for (Car *car in lane2) {
-//        if ((playerCar.imageView.center.y - car.imageView.center.y == 69) && (playerCar.currentLane == 2)) {
-//            [self endGame];
-//        }
-//    }
-//    for (Car *car in lane3) {
-//        if ((playerCar.imageView.center.y - car.imageView.center.y == 69) && (playerCar.currentLane == 3)) {
-//            [self endGame];
-//        }
-//    }
+    else if (playerCar.currentLane == 1) {
+        for (Car *car in lane1) {
+            if ((abs(playerCar.imageView.center.y - car.imageView.center.y) < upper) && (playerCar.currentLane == 1) && ((abs(playerCar.imageView.center.y - car.imageView.center.y) > lower))) {
+                [self endGame];
+            }
+        }
+    }
+    else if (playerCar.currentLane == 2) {
+        for (Car *car in lane2) {
+            if ( (abs(playerCar.imageView.center.y - car.imageView.center.y) < upper) && (playerCar.currentLane == 2) && ((abs(playerCar.imageView.center.y - car.imageView.center.y) > lower)) ) {
+                [self endGame];
+            }
+        }
+    }
+    else {
+        for (Car *car in lane3) {
+            if ( (abs(playerCar.imageView.center.y - car.imageView.center.y) < upper) && (playerCar.currentLane == 3) && ((abs(playerCar.imageView.center.y - car.imageView.center.y) > lower)) ) {
+                [self endGame];
+            }
+        }
+    }
 }
 
 -(void) movePlayerCar {
@@ -111,15 +149,15 @@
 }
 
 -(void) newGame {
-    start = YES;
-    [self deleteAllCars];
-    playerCar = [[Car alloc] initPlayerCar];
-    highScore.hidden = NO;
+    scoreNumber = 0;
+    highestScore.hidden = NO;
     developerName.hidden = NO;
     tapToStart.hidden = NO;
     swipeToMove.hidden = NO;
-    [self viewDidLoad];
-
+    start = YES;
+    score.text = [NSString stringWithFormat:@"Score: "];
+    highestScore.text = [NSString stringWithFormat:@"High Score: %i", highScore];
+    
 }
 
 -(void) scoring {
@@ -141,33 +179,33 @@
     }
     [self.view addSubview:newCar.imageView];
 }
-
--(void) deleteAllCars {
+-(void) deletePlayerCar {
     [playerCar.imageView removeFromSuperview];
     playerCar.imageView = nil;
     playerCar.image = nil;
     playerCar = nil;
-    
+}
+-(void) deleteAllCars {
+
     for (int i = 0; i < [lane0 count]; i++)
     {
         Car *cars = lane0[i];
         [cars.imageView removeFromSuperview];
-        cars.image = nil;
-        cars.imageView = nil;
         [lane0 removeObjectAtIndex:i];
         cars = nil;
     }
 }
 
 -(void) endGame {
-    //if (scoreNumber > highScore) {
-    //    highScore = scoreNumber;
-    //    [[NSUserDefaults standardUserDefaults] setInteger:highScore forKey:@"High Score Saved"];
-    //}
+    if (scoreNumber > highScore) {
+        highScore = scoreNumber;
+        [[NSUserDefaults standardUserDefaults] setInteger:highScore forKey:@"High Score Saved"];
+    }
+    
     [timer invalidate];
     [scorer invalidate];
     [carSpawner invalidate];
-    [self performSelector:@selector(newGame) withObject:nil afterDelay:.5];
+    [self performSelector:@selector(newGame) withObject:nil afterDelay:2];
 }
 
 - (void)handleSwipe:(UISwipeGestureRecognizer *)swipe {
@@ -175,7 +213,6 @@
         [playerCar moveLeft];
 
     if (swipe.direction == UISwipeGestureRecognizerDirectionRight)
-        // Move car right by calling function
         [playerCar moveRight];
 }
 
@@ -186,10 +223,13 @@
 }
 
 - (void)startGame {
-    //[self deleteAllCars];
+    [self deleteAllCars];
+    [self deleteAllCars];
+    [self deletePlayerCar];
 
-    playerCar.position = CGPointMake(l2x, defaultY);
-    [playerCar refreshImageView];
+    playerCar = [[Car alloc] initPlayerCar];
+    [self.view addSubview:playerCar.imageView];
+    //playerCar = playerCar.initPlayerCar;
 
     start = NO;
 
@@ -198,11 +238,11 @@
     lane2 = [[NSMutableArray alloc] init];
     lane3 = [[NSMutableArray alloc] init];
 
-    highScore.hidden = YES;
+    highestScore.hidden = YES;
     developerName.hidden = YES;
     tapToStart.hidden = YES;
     swipeToMove.hidden = YES;
-
+    
     road9.center = CGPointMake(160, 36);
     road8.center = CGPointMake(160, 100);
     road7.center = CGPointMake(160, 164);
@@ -213,7 +253,7 @@
     road2.center = CGPointMake(160, 484);
     road1.center = CGPointMake(160, 548);
 
-    timer = [NSTimer scheduledTimerWithTimeInterval:.01 target:self selector:@selector(movePlayerCar) userInfo:Nil repeats:YES];
+    timer = [NSTimer scheduledTimerWithTimeInterval:.03 target:self selector:@selector(movePlayerCar) userInfo:Nil repeats:YES];
 
     scorer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(scoring) userInfo:nil repeats:YES];
 
@@ -222,11 +262,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self button];
     start = YES;
-
+    
     playerCar = [[Car alloc] initPlayerCar];
     [self.view addSubview:playerCar.imageView];
-
+    
     self.view.userInteractionEnabled = YES;
 
     UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
@@ -239,6 +280,9 @@
     // Adding the swipe gesture on image view
     [self.view addGestureRecognizer:swipeLeft];
     [self.view addGestureRecognizer:swipeRight];
+    
+    highScore = [[NSUserDefaults standardUserDefaults] integerForKey:@"High Score Saved"];
+    highestScore.text = [NSString stringWithFormat:@"High Score: %i", highScore];
 }
 
 - (void)didReceiveMemoryWarning {
