@@ -18,19 +18,21 @@ static NSInteger l0x = 38;
 static NSInteger l1x = 116;
 static NSInteger l2x = 205;
 static NSInteger l3x = 285;
+static NSInteger top = -50;
 static NSInteger defaultY = 400;
-static NSInteger defaultSpeed = 10;
+static NSInteger defaultSpeed = 5;
 
 @interface ViewController : UIViewController
 {
     NSTimer *timer;
     NSTimer *scorer;
-    NSTimer *generator;
     NSTimer *carSpawner;
     NSMutableArray *lane0;
     NSMutableArray *lane1;
     NSMutableArray *lane2;
     NSMutableArray *lane3;
+    
+    NSInteger alpha;
     
     IBOutlet UILabel *highScore;       // high score label
     IBOutlet UILabel *developerName;   // developer name label
@@ -58,7 +60,6 @@ static NSInteger defaultSpeed = 10;
 -(void) moveSurroundingCars; // move surrounding cars
 -(void) newGame;             // start a new gae
 -(void) scoring;             // number of cars cut off
--(void) hitCar;              // hit another car
 -(void) endGame;             // when to end the game
 -(void) checkCollision;      // see if player hit a car
 -(void) spawnCar;            // spawn new car

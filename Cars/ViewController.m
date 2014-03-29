@@ -15,31 +15,43 @@
 
 @end
 
+#define randomValue() (arc4random() % ((unsigned)RAND_MAX + 1))
+
 @implementation ViewController
 
 - (IBAction)generateNewCars {
 
 }
 -(void) checkCollision {
-    for (Car *car in lane0) {
-        if (playerCar.imageView.center.y - car.imageView.center.y <= 69) { //&& (playerCar.currentLane == 0)
+    
+    NSInteger lane = playerCar.currentLane;
+    if (lane == 0) {
+        for (Car *car in lane0) {
+            if (playerCar.imageView.center.y - car.imageView.center.y <= 69 && car.imageView.center.y - playerCar.imageView.center.y <= 20) {
                 [self endGame];
+            }
         }
-    }
-    for (Car *car in lane1) {
-        if ((playerCar.imageView.center.y - car.imageView.center.y) <= 69) {
-            [self endGame];
+    } else if (lane == 1) {
+        for (Car *car in lane1) {
+            if (playerCar.imageView.center.y - car.imageView.center.y <= 69 && car.imageView.center.y - playerCar.imageView.center.y <= 20) {
+                [self endGame];
+            }
         }
-    }
-    for (Car *car in lane2) {
-        if ((playerCar.imageView.center.y - car.imageView.center.y <= 69) && (playerCar.currentLane == 2) ) {
-            [self endGame];
+
+    } else if (lane == 2) {
+        for (Car *car in lane2) {
+            if (playerCar.imageView.center.y - car.imageView.center.y <= 69 && car.imageView.center.y - playerCar.imageView.center.y <= 20) {
+                [self endGame];
+            }
         }
-    }
-    for (Car *car in lane3) {
-        if (abs(playerCar.imageView.center.y - car.imageView.center.y) <= 69) {
-            [self endGame];
+
+    } else if (lane == 3) {
+        for (Car *car in lane3) {
+            if (playerCar.imageView.center.y - car.imageView.center.y <= 69 && car.imageView.center.y - playerCar.imageView.center.y <= 20) {
+                [self endGame];
+            }
         }
+
     }
 }
 
@@ -81,35 +93,32 @@
 
 -(void) moveSurroundingCars
 {
-    NSMutableArray *carsToRemove = [[NSMutableArray alloc] init];
     for (Car *car in lane0) {
         [car moveDown];
         if (car.position.y > 560) {
-            [carsToRemove addObject:car];
+            [lane0 removeObject:car];
+            break;
         }
     }
-    for (Car *car in carsToRemove) {
-        [lane0 removeObject:car];
-    }
-    NSLog(@"break1");
     for (Car *car in lane1) {
         [car moveDown];
         if (car.position.y > 560) {
             [lane1 removeObject:car];
+            break;
         }
     }
-    NSLog(@"break1");
     for (Car *car in lane2) {
         [car moveDown];
         if (car.position.y > 560) {
             [lane2 removeObject:car];
+            break;
         }
     }
-    NSLog(@"break1");
     for (Car *car in lane3) {
         [car moveDown];
         if (car.position.y > 560) {
             [lane3 removeObject:car];
+            break;
         }
     }
 }
@@ -128,12 +137,12 @@
     score.text = [NSString stringWithFormat:@"Score: %i", scoreNumber];
 }
 
--(void) hitCar {
+-(void) willSpawnCar {
+    float v = randomValue();
     
 }
 
 -(void) spawnCar {
-    NSLog(@"spawning car");
     Car *newCar = [[Car alloc] initRandomCar];
     if (newCar.currentLane == 0) {
         [lane0 addObject:newCar];
@@ -176,6 +185,8 @@
 
 - (void)startGame {
     start = NO;
+    
+    alpha = 1;
 
     lane0 = [[NSMutableArray alloc] init];
     lane1 = [[NSMutableArray alloc] init];
@@ -197,11 +208,11 @@
     road2.center = CGPointMake(160, 484);
     road1.center = CGPointMake(160, 548);
 
-    timer = [NSTimer scheduledTimerWithTimeInterval:.05 target:self selector:@selector(movePlayerCar) userInfo:Nil repeats:YES];
+    timer = [NSTimer scheduledTimerWithTimeInterval:.01 target:self selector:@selector(movePlayerCar) userInfo:Nil repeats:YES];
 
     scorer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(scoring) userInfo:nil repeats:YES];
 
-    carSpawner = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(spawnCar) userInfo:nil repeats:YES];
+    carSpawner = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(spawnCar) userInfo:nil repeats:YES];
 
 }
 
