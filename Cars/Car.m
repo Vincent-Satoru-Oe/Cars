@@ -59,17 +59,6 @@
     }
     return self;
 }
--(id)changePlayerCar:(NSString *)color {
-    self.image = [UIImage imageNamed:color];
-    self.imageView = [[UIImageView alloc] initWithImage:self.image];
-    self.speed = defaultSpeed;
-    self.position = CGPointMake(l2x, defaultY);
-    self.currentLane = 2;
-    self.isPlayerCar = YES;
-    
-    [self refreshImageView];
-    return self;
-}
 
 -(void)moveLeft {
     if (self.currentLane > 0) {

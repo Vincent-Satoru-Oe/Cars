@@ -26,6 +26,4 @@
 -(NSString*) randomColor;
 -(void)refreshImageView;
 
--(id)changePlayerCar:(NSString *)color;
-
 @end

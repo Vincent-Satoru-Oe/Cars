@@ -13,7 +13,6 @@ int y;
 BOOL start;
 int scoreNumber;
 int highScore;
-NSString *chosenColor;
 
 static NSInteger l0x = 38;
 static NSInteger l1x = 116;
@@ -69,7 +68,5 @@ static NSInteger defaultSpeed = 4;
 -(void) spawnCar;            // spawn new car
 -(void) deleteAllCars;
 -(void) deletePlayerCar;
--(void) button;
--(void) click:(UIButton *) sender;
 
 @end

@@ -16,39 +16,6 @@
 
 @implementation ViewController
 
--(void) click:(UIButton *) sender {
-    NSLog(@"clicking the button worked");
-    [self deletePlayerCar];
-    playerCar.image = [UIImage imageNamed:@"RedCar.png"];
-    NSString *colorChange = @"RedCar.png";
-
-    playerCar = [[Car alloc] changePlayerCar:colorChange];
-
-    playerCar.imageView = [[UIImageView alloc] initWithImage:playerCar.image];
-    [self.view addSubview:playerCar.imageView];
-    [playerCar refreshImageView];
-    chosenColor = @"RedCar.png";
-
-}
-
--(void) button {
-    
-    UILabel *redLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, 30, 30)];
-    [redLabel setText:@""];
-    
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-    [view setUserInteractionEnabled:NO];
-
-    [view addSubview:redLabel];
-
-    UIButton *btnRed = [UIButton buttonWithType:UIButtonTypeCustom];
-    [btnRed addSubview:view];
-    [btnRed setFrame:CGRectMake(100, 400, 30, 30)];
-    [btnRed setBackgroundColor: [UIColor redColor]];
-    [btnRed addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
-    
-    [self.view addSubview:btnRed];
-}
 -(void) checkCollision {
     int upper = 66;
     int lower = 0;
@@ -83,7 +50,6 @@
 }
 
 -(void) movePlayerCar {
-    
     road9.center = CGPointMake(road9.center.x, road9.center.y + defaultSpeed);
     road8.center = CGPointMake(road8.center.x, road8.center.y + defaultSpeed);
     road7.center = CGPointMake(road7.center.x, road7.center.y + defaultSpeed);
@@ -157,7 +123,6 @@
     start = YES;
     score.text = [NSString stringWithFormat:@"Score: "];
     highestScore.text = [NSString stringWithFormat:@"High Score: %i", highScore];
-    
 }
 
 -(void) scoring {
@@ -229,7 +194,6 @@
 
     playerCar = [[Car alloc] initPlayerCar];
     [self.view addSubview:playerCar.imageView];
-    //playerCar = playerCar.initPlayerCar;
 
     start = NO;
 
@@ -262,7 +226,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self button];
     start = YES;
     
     playerCar = [[Car alloc] initPlayerCar];
