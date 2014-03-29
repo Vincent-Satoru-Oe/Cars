@@ -18,8 +18,9 @@ static NSInteger l0x = 38;
 static NSInteger l1x = 116;
 static NSInteger l2x = 205;
 static NSInteger l3x = 285;
-static NSInteger defaultY = 335;
-static NSInteger defaultSpeed = 4;
+static NSInteger top = -50;
+static NSInteger defaultY = 400;
+static NSInteger defaultSpeed = 5;
 
 @interface ViewController : UIViewController
 {
@@ -31,16 +32,12 @@ static NSInteger defaultSpeed = 4;
     NSMutableArray *lane2;
     NSMutableArray *lane3;
     
-    IBOutlet UILabel *highestScore;       // highest score label
+    NSInteger alpha;
+    
+    IBOutlet UILabel *highestScore;    // highest score label
     IBOutlet UILabel *developerName;   // developer name label
     IBOutlet UILabel *tapToStart;      // tap to start label
     IBOutlet UILabel *swipeToMove;     // swipe to start label
-    
-    //IBOutlet UILabel *greenButton;
-    //IBOutlet UILabel *redButton;
-    
-    UIButton *greenButton;
-    UIButton *redButton;
 
     Car *playerCar;
     UIImageView *playerCarView;

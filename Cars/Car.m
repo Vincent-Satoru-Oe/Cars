@@ -10,21 +10,51 @@
 #import "ViewController.h"
 #include <stdlib.h>
 
+#define randomValue() (arc4random() / 4294967296)
+
 @implementation Car
+
 -(NSString*) randomColor {
     NSArray *list = @[@"BlueCar.png", @"GreenCar.png", @"RedCar.png", @"YellowCar.png", @"PinkCar.png", @"OrangeCar.png"];
     NSInteger randomIndex = arc4random() % [list count];
     return [list objectAtIndex:randomIndex];
 }
+
 -(id)initRandomCar {
     if (self = [super init]) {
-        
         NSString *temp = [self randomColor];
         self.image = [UIImage imageNamed:(temp)];
         self.imageView = [[UIImageView alloc] initWithImage:self.image];
-        self.speed = defaultSpeed;
-        self.position = CGPointMake(l0x, -50);
-        self.currentLane = 0;
+        
+        NSArray *speedDistribution = [NSArray arrayWithObjects:
+                                      [NSNumber numberWithFloat:0],
+                                      [NSNumber numberWithFloat:2],
+                                      [NSNumber numberWithFloat:50],
+                                      [NSNumber numberWithFloat:150],
+                                      [NSNumber numberWithFloat:300],
+                                      [NSNumber numberWithFloat:500],
+                                      [NSNumber numberWithFloat:700],
+                                      [NSNumber numberWithFloat:850],
+                                      [NSNumber numberWithFloat:950],
+                                      [NSNumber numberWithFloat:999],
+                                      [NSNumber numberWithFloat:1000], nil];
+        
+        float speedValue = arc4random() % 1000;
+        int i = 0;
+        while (speedValue >= [[speedDistribution objectAtIndex:i] floatValue]) {
+            i = i + 1;
+        }
+        self.speed = (float)i/2.0;
+        self.currentLane = arc4random() % 4;
+        if (self.currentLane == 0) {
+            self.position = CGPointMake(l0x, top);
+        } else if (self.currentLane == 1) {
+            self.position = CGPointMake(l1x, top);
+        } else if (self.currentLane == 2) {
+            self.position = CGPointMake(l2x, top);
+        } else {
+            self.position = CGPointMake(l3x, top);
+        }
         self.isPlayerCar = NO;
     
         [self refreshImageView];
@@ -37,7 +67,7 @@
         self.image = [UIImage imageNamed:imageName];
         self.imageView = [[UIImageView alloc] initWithImage:self.image];
         self.speed = speed;
-        self.position = CGPointMake(l0x, -50);
+        self.position = CGPointMake(l0x, top);
         self.currentLane = 0;
         self.isPlayerCar = NO;
 

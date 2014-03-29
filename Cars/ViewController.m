@@ -14,35 +14,35 @@
 
 @end
 
+#define randomValue() (arc4random() % ((unsigned)RAND_MAX + 1))
+
 @implementation ViewController
 
 -(void) checkCollision {
-    int upper = 66;
-    int lower = 0;
-    if (playerCar.currentLane == 0) {
+    NSInteger lane = playerCar.currentLane;
+    if (lane == 0) {
         for (Car *car in lane0) {
-            if ( (abs(playerCar.imageView.center.y - car.imageView.center.y) < upper) && (playerCar.currentLane == 0) && ((abs(playerCar.imageView.center.y - car.imageView.center.y) > lower))) {
+            if (abs(playerCar.imageView.center.y - car.imageView.center.y) <= 69) {
                 [self endGame];
             }
         }
-    }
-    else if (playerCar.currentLane == 1) {
+    } else if (lane == 1) {
         for (Car *car in lane1) {
-            if ((abs(playerCar.imageView.center.y - car.imageView.center.y) < upper) && (playerCar.currentLane == 1) && ((abs(playerCar.imageView.center.y - car.imageView.center.y) > lower))) {
+            if (abs(playerCar.imageView.center.y - car.imageView.center.y) <= 69) {
                 [self endGame];
             }
         }
-    }
-    else if (playerCar.currentLane == 2) {
+
+    } else if (lane == 2) {
         for (Car *car in lane2) {
-            if ( (abs(playerCar.imageView.center.y - car.imageView.center.y) < upper) && (playerCar.currentLane == 2) && ((abs(playerCar.imageView.center.y - car.imageView.center.y) > lower)) ) {
+            if (abs(playerCar.imageView.center.y - car.imageView.center.y) <= 69) {
                 [self endGame];
             }
         }
-    }
-    else {
+
+    } else if (lane == 3) {
         for (Car *car in lane3) {
-            if ( (abs(playerCar.imageView.center.y - car.imageView.center.y) < upper) && (playerCar.currentLane == 3) && ((abs(playerCar.imageView.center.y - car.imageView.center.y) > lower)) ) {
+            if (abs(playerCar.imageView.center.y - car.imageView.center.y) <= 69) {
                 [self endGame];
             }
         }
@@ -84,6 +84,7 @@
 }
 
 -(void) moveSurroundingCars {
+    NSLog(@"lane0 count before; %d", [lane0 count]);
     for (Car *car in lane0) {
         [car moveDown];
         if (car.position.y > 560) {
@@ -91,6 +92,7 @@
             break;
         }
     }
+    NSLog(@"lane1 count after; %d", [lane0 count]);
     for (Car *car in lane1) {
         [car moveDown];
         if (car.position.y > 560) {
@@ -98,6 +100,7 @@
             break;
         }
     }
+    NSLog(@"lane2 count after; %d", [lane0 count]);
     for (Car *car in lane2) {
         [car moveDown];
         if (car.position.y > 560) {
@@ -105,6 +108,7 @@
             break;
         }
     }
+    NSLog(@"lane3 count after; %d", [lane0 count]);
     for (Car *car in lane3) {
         [car moveDown];
         if (car.position.y > 560) {
@@ -130,9 +134,13 @@
     score.text = [NSString stringWithFormat:@"Score: %i", scoreNumber];
 }
 
+-(void) willSpawnCar {
+    float v = randomValue();
+}
+
 -(void) spawnCar {
-    NSLog(@"spawning car");
     Car *newCar = [[Car alloc] initRandomCar];
+    
     if (newCar.currentLane == 0) {
         [lane0 addObject:newCar];
     } else if (newCar.currentLane == 1) {
@@ -143,6 +151,7 @@
         [lane3 addObject:newCar];
     }
     [self.view addSubview:newCar.imageView];
+    [newCar refreshImageView];
 }
 -(void) deletePlayerCar {
     [playerCar.imageView removeFromSuperview];
@@ -151,14 +160,37 @@
     playerCar = nil;
 }
 -(void) deleteAllCars {
-
+    NSLog(@"lane0 count; %d", [lane0 count]);
+    NSLog(@"lane1 count; %d", [lane1 count]);
+    NSLog(@"lane2 count; %d", [lane2 count]);
+    NSLog(@"lane3 count; %d", [lane3 count]);
     for (int i = 0; i < [lane0 count]; i++)
     {
         Car *cars = lane0[i];
         [cars.imageView removeFromSuperview];
         [lane0 removeObjectAtIndex:i];
         cars = nil;
+    } for (int i = 0; i < [lane1 count]; i++) {
+        Car *cars = lane1[i];
+        [cars.imageView removeFromSuperview];
+        [lane1 removeObjectAtIndex:i];
+        cars = nil;
+    } for (int i = 0; i < [lane2 count]; i++) {
+        Car *cars = lane2[i];
+        [cars.imageView removeFromSuperview];
+        [lane2 removeObjectAtIndex:i];
+        cars = nil;
+    } for (int i = 0; i < [lane3 count]; i++) {
+        Car *cars = lane3[i];
+        [cars.imageView removeFromSuperview];
+        [lane3 removeObjectAtIndex:i];
+        cars = nil;
     }
+    NSLog(@"After deleting.");
+    NSLog(@"lane0 count; %d", [lane0 count]);
+    NSLog(@"lane1 count; %d", [lane1 count]);
+    NSLog(@"lane2 count; %d", [lane2 count]);
+    NSLog(@"lane3 count; %d", [lane3 count]);
 }
 
 -(void) endGame {
@@ -190,12 +222,15 @@
 - (void)startGame {
     [self deleteAllCars];
     [self deleteAllCars];
+    [self deleteAllCars];
     [self deletePlayerCar];
 
     playerCar = [[Car alloc] initPlayerCar];
     [self.view addSubview:playerCar.imageView];
 
     start = NO;
+    
+    alpha = 1;
 
     lane0 = [[NSMutableArray alloc] init];
     lane1 = [[NSMutableArray alloc] init];
@@ -221,7 +256,7 @@
 
     scorer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(scoring) userInfo:nil repeats:YES];
 
-    carSpawner = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(spawnCar) userInfo:nil repeats:YES];
+    carSpawner = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(spawnCar) userInfo:nil repeats:YES];
 }
 
 - (void)viewDidLoad {
