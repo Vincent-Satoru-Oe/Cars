@@ -13,6 +13,9 @@ int y;
 BOOL start;
 int scoreNumber;
 int highScore;
+BOOL isPlayButton;
+
+static NSInteger maxCarsPerLane = 2;
 
 static NSInteger l0x = 38;
 static NSInteger l1x = 116;
@@ -27,10 +30,13 @@ static NSInteger defaultSpeed = 5;
     NSTimer *timer;
     NSTimer *scorer;
     NSTimer *carSpawner;
+    
     NSMutableArray *lane0;
     NSMutableArray *lane1;
     NSMutableArray *lane2;
     NSMutableArray *lane3;
+    
+    UIButton *button;
     
     NSInteger alpha;
     
@@ -65,5 +71,8 @@ static NSInteger defaultSpeed = 5;
 -(void) spawnCar;            // spawn new car
 -(void) deleteAllCars;
 -(void) deletePlayerCar;
+
+-(void) pause:(id) sender;
+-(void) pauseButton;
 
 @end
