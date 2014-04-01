@@ -56,7 +56,7 @@
             self.position = CGPointMake(l3x, top);
         }
         self.isPlayerCar = NO;
-    
+
         [self refreshImageView];
     }
     return self;

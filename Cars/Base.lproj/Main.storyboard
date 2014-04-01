@@ -64,15 +64,15 @@
                                 <color key="textColor" red="0.142456511724114" green="1" blue="0.11757171606279737" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DeveloperName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B8f-g4-x3a">
-                                <rect key="frame" x="98" y="109" width="124" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Eric Sutton" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B8f-g4-x3a">
+                                <rect key="frame" x="118" y="109" width="85" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.086573815128913267" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1xd-Ai-A84">
-                                <rect key="frame" x="20" y="13" width="280" height="21"/>
+                                <rect key="frame" x="20" y="15" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.9833984375" green="0.96137890368136858" blue="0.0095422368701999095" alpha="1" colorSpace="calibratedRGB"/>
@@ -85,11 +85,33 @@
                                 <color key="textColor" red="0.0" green="0.69749816381577778" blue="0.99214764030612246" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Game     Paused" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xd3-OC-OPx">
+                                <rect key="frame" x="103" y="142" width="133" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.9944196428571429" green="0.29413754405386405" blue="0.95317528335340618" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Swipe To Move" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="27E-UZ-stc">
+                                <rect key="frame" x="101" y="239" width="118" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.68803963296893733" blue="0.43330615592062383" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total Coins:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJW-cC-vPm">
+                                <rect key="frame" x="20" y="422" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.92652546246618972" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="developerName" destination="B8f-g4-x3a" id="ugQ-Fb-oDW"/>
+                        <outlet property="gamePausedLabel" destination="xd3-OC-OPx" id="wJB-GC-zzq"/>
                         <outlet property="highestScore" destination="mec-d7-aWe" id="BRg-0b-aPg"/>
                         <outlet property="road1" destination="2vU-hL-19P" id="SW3-d3-1zD"/>
                         <outlet property="road2" destination="Ft2-9m-CRX" id="xtt-M8-VjU"/>
@@ -101,7 +123,9 @@
                         <outlet property="road8" destination="inc-pA-5AU" id="Jcu-Cb-4AO"/>
                         <outlet property="road9" destination="6LA-FZ-QpZ" id="GVW-yY-dTx"/>
                         <outlet property="score" destination="1xd-Ai-A84" id="W3p-V6-bEC"/>
+                        <outlet property="swipeToMove" destination="27E-UZ-stc" id="qXj-8Q-zHx"/>
                         <outlet property="tapToStart" destination="sPv-B0-7J3" id="U6p-NV-NWv"/>
+                        <outlet property="totalCoinsLabel" destination="bJW-cC-vPm" id="dQz-Lc-pRq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
