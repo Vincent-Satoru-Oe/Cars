@@ -49,7 +49,7 @@
     }
 }
 
--(void) movePlayerCar {
+-(void) moveCars {
     road9.center = CGPointMake(road9.center.x, road9.center.y + defaultSpeed);
     road8.center = CGPointMake(road8.center.x, road8.center.y + defaultSpeed);
     road7.center = CGPointMake(road7.center.x, road7.center.y + defaultSpeed);
@@ -84,36 +84,49 @@
 }
 
 -(void) moveSurroundingCars {
-    NSLog(@"lane0 count before; %d", [lane0 count]);
-    for (Car *car in lane0) {
-        [car moveDown];
-        if (car.position.y > 560) {
-            [lane0 removeObject:car];
-            break;
+    int count = [lane0 count];
+    if (count > 0) {
+        for (int i = 0; i < count; i++) {
+            Car *car = lane0[i];
+            
+            [car moveDown];
+            if (car.position.y > 560) {
+                [lane0 removeObject:car];
+                break;
+            }
         }
     }
-    NSLog(@"lane1 count after; %d", [lane0 count]);
-    for (Car *car in lane1) {
-        [car moveDown];
-        if (car.position.y > 560) {
-            [lane1 removeObject:car];
-            break;
+    count = [lane1 count];
+    if (count > 0) {
+        for (int i = 0; i < count; i++) {
+            Car *car = lane1[i];
+            [car moveDown];
+            if (car.position.y > 560) {
+                [lane1 removeObject:car];
+                break;
+            }
         }
     }
-    NSLog(@"lane2 count after; %d", [lane0 count]);
-    for (Car *car in lane2) {
-        [car moveDown];
-        if (car.position.y > 560) {
-            [lane2 removeObject:car];
-            break;
+    count = [lane2 count];
+    if (count > 0) {
+        for (int i = 0; i < count; i++) {
+            Car *car = lane2[i];
+            [car moveDown];
+            if (car.position.y > 560) {
+                [lane2 removeObject:car];
+                break;
+            }
         }
     }
-    NSLog(@"lane3 count after; %d", [lane0 count]);
-    for (Car *car in lane3) {
-        [car moveDown];
-        if (car.position.y > 560) {
-            [lane3 removeObject:car];
-            break;
+    count = [lane3 count];
+    if (count > 0) {
+        for (int i = 0; i < count; i++) {
+            Car *car = lane3[i];
+            [car moveDown];
+            if (car.position.y > 560) {
+                [lane3 removeObject:car];
+                break;
+            }
         }
     }
 }
@@ -160,37 +173,38 @@
     playerCar = nil;
 }
 -(void) deleteAllCars {
-    NSLog(@"lane0 count; %d", [lane0 count]);
-    NSLog(@"lane1 count; %d", [lane1 count]);
-    NSLog(@"lane2 count; %d", [lane2 count]);
-    NSLog(@"lane3 count; %d", [lane3 count]);
-    for (int i = 0; i < [lane0 count]; i++)
-    {
-        Car *cars = lane0[i];
-        [cars.imageView removeFromSuperview];
-        [lane0 removeObjectAtIndex:i];
-        cars = nil;
-    } for (int i = 0; i < [lane1 count]; i++) {
-        Car *cars = lane1[i];
-        [cars.imageView removeFromSuperview];
-        [lane1 removeObjectAtIndex:i];
-        cars = nil;
-    } for (int i = 0; i < [lane2 count]; i++) {
-        Car *cars = lane2[i];
-        [cars.imageView removeFromSuperview];
-        [lane2 removeObjectAtIndex:i];
-        cars = nil;
-    } for (int i = 0; i < [lane3 count]; i++) {
-        Car *cars = lane3[i];
-        [cars.imageView removeFromSuperview];
-        [lane3 removeObjectAtIndex:i];
-        cars = nil;
+    int count = [lane0 count];
+    if (count > 0) {
+        for (int i = 0; i < count; i++) {
+            Car *cars = lane0[i];
+            [cars.imageView removeFromSuperview];
+            cars = nil;
+        }
     }
-    NSLog(@"After deleting.");
-    NSLog(@"lane0 count; %d", [lane0 count]);
-    NSLog(@"lane1 count; %d", [lane1 count]);
-    NSLog(@"lane2 count; %d", [lane2 count]);
-    NSLog(@"lane3 count; %d", [lane3 count]);
+    count = [lane1 count];
+    if (count > 0) {
+        for (int i = 0; i < count; i++) {
+            Car *cars = lane1[i];
+            [cars.imageView removeFromSuperview];
+            cars = nil;
+        }
+    }
+    count = [lane2 count];
+    if (count > 0) {
+        for (int i = 0; i < count; i++) {
+            Car *cars = lane2[i];
+            [cars.imageView removeFromSuperview];
+            cars = nil;
+        }
+    }
+    count = [lane3 count];
+    if (count > 0) {
+        for (int i = 0; i < count; i++) {
+            Car *cars = lane3[i];
+            [cars.imageView removeFromSuperview];
+            cars = nil;
+        }
+    }
 }
 
 -(void) endGame {
@@ -221,8 +235,6 @@
 
 - (void)startGame {
     [self deleteAllCars];
-    [self deleteAllCars];
-    [self deleteAllCars];
     [self deletePlayerCar];
 
     playerCar = [[Car alloc] initPlayerCar];
@@ -252,7 +264,7 @@
     road2.center = CGPointMake(160, 484);
     road1.center = CGPointMake(160, 548);
 
-    timer = [NSTimer scheduledTimerWithTimeInterval:.03 target:self selector:@selector(movePlayerCar) userInfo:Nil repeats:YES];
+    timer = [NSTimer scheduledTimerWithTimeInterval:.01 target:self selector:@selector(moveCars) userInfo:Nil repeats:YES];
 
     scorer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(scoring) userInfo:nil repeats:YES];
 

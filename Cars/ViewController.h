@@ -56,7 +56,7 @@ static NSInteger defaultSpeed = 5;
     IBOutlet UIImageView *road9;
 }
 
--(void) movePlayerCar;       // moves players cars
+-(void) moveCars;       // moves players cars
 -(void) moveSurroundingCars; // move surrounding cars
 -(void) newGame;             // start a new game
 -(void) scoring;             // number of cars cut off
