@@ -15,7 +15,7 @@
 @implementation Car
 
 -(NSString*) randomColor {
-    NSArray *list = @[@"BlueCar.png", @"GreenCar.png", @"RedCar.png", @"YellowCar.png", @"PinkCar.png", @"OrangeCar.png"];
+    NSArray *list = @[@"BlueCar.png", @"GreenCar.png", @"RedCar.png", @"YellowCar.png", @"PinkCar.png", @"OrangeCar.png", @"DarkGreenCar.png", @"PlumCar.png", @"TurquoiseCar.png", @"SteelCar.png"];
     NSInteger randomIndex = arc4random() % [list count];
     return [list objectAtIndex:randomIndex];
 }
@@ -56,7 +56,7 @@
             self.position = CGPointMake(l3x, top);
         }
         self.isPlayerCar = NO;
-    
+
         [self refreshImageView];
     }
     return self;
@@ -78,7 +78,8 @@
 
 -(id)initPlayerCar {
     if (self = [super init]) {
-        self.image = [UIImage imageNamed:@"BlueCar.png"];
+        NSString *temp = [self randomColor];
+        self.image = [UIImage imageNamed:(temp)];
         self.imageView = [[UIImageView alloc] initWithImage:self.image];
         self.speed = defaultSpeed;
         self.position = CGPointMake(l2x, defaultY);

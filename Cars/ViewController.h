@@ -7,19 +7,26 @@
 //
 
 #import "Car.h"
-
+#import "Coin.h"
 #import <UIKit/UIKit.h>
+
 int y;
 BOOL start;
 int scoreNumber;
 int highScore;
+int totalCoins;
+BOOL isPlayButton;
+BOOL gameIsPaused;
+BOOL gameNotOver;
+
+static NSInteger maxCarsPerLane = 2;
 
 static NSInteger l0x = 38;
 static NSInteger l1x = 116;
 static NSInteger l2x = 205;
 static NSInteger l3x = 285;
 static NSInteger top = -50;
-static NSInteger defaultY = 400;
+static NSInteger defaultY = 350;
 static NSInteger defaultSpeed = 5;
 
 @interface ViewController : UIViewController
@@ -27,10 +34,19 @@ static NSInteger defaultSpeed = 5;
     NSTimer *timer;
     NSTimer *scorer;
     NSTimer *carSpawner;
+    NSTimer *coinSpawner;
+    
     NSMutableArray *lane0;
     NSMutableArray *lane1;
     NSMutableArray *lane2;
     NSMutableArray *lane3;
+    
+    NSMutableArray *lane0Coin;
+    NSMutableArray *lane1Coin;
+    NSMutableArray *lane2Coin;
+    NSMutableArray *lane3Coin;
+    
+    UIButton *button;
     
     NSInteger alpha;
     
@@ -38,6 +54,8 @@ static NSInteger defaultSpeed = 5;
     IBOutlet UILabel *developerName;   // developer name label
     IBOutlet UILabel *tapToStart;      // tap to start label
     IBOutlet UILabel *swipeToMove;     // swipe to start label
+    IBOutlet UILabel *gamePausedLabel;
+    IBOutlet UILabel *totalCoinsLabel;
 
     Car *playerCar;
     UIImageView *playerCarView;
@@ -65,5 +83,14 @@ static NSInteger defaultSpeed = 5;
 -(void) spawnCar;            // spawn new car
 -(void) deleteAllCars;
 -(void) deletePlayerCar;
+-(void) pause:(id) sender;
+-(void) pauseButton;
+-(void) moveCoins;
+-(void) deleteAllCoins;
+-(void) checkCollisionWithCoins;
+-(void) spawnCoin;
+-(void) deleteSingleCoin:(id) sender;
+-(void) coinIncrement;
+
 
 @end

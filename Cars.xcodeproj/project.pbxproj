@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		CBD4601218E229980026DE96 /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = CBD4601118E229980026DE96 /* Car.m */; };
+		FD12128518E7E2CC00E5C3EB /* DarkGreenCar.png in Resources */ = {isa = PBXBuildFile; fileRef = FD12128118E7E2CC00E5C3EB /* DarkGreenCar.png */; };
+		FD12128618E7E2CC00E5C3EB /* PlumCar.png in Resources */ = {isa = PBXBuildFile; fileRef = FD12128218E7E2CC00E5C3EB /* PlumCar.png */; };
+		FD12128718E7E2CC00E5C3EB /* SteelCar.png in Resources */ = {isa = PBXBuildFile; fileRef = FD12128318E7E2CC00E5C3EB /* SteelCar.png */; };
+		FD12128818E7E2CC00E5C3EB /* TurquoiseCar.png in Resources */ = {isa = PBXBuildFile; fileRef = FD12128418E7E2CC00E5C3EB /* TurquoiseCar.png */; };
 		FD41EB6718E0197E00E3C01A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD41EB6618E0197E00E3C01A /* Foundation.framework */; };
 		FD41EB6918E0197E00E3C01A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD41EB6818E0197E00E3C01A /* CoreGraphics.framework */; };
 		FD41EB6B18E0197E00E3C01A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD41EB6A18E0197E00E3C01A /* UIKit.framework */; };
@@ -30,6 +34,10 @@
 		FD41EBAF18E02D6200E3C01A /* PinkCar.png in Resources */ = {isa = PBXBuildFile; fileRef = FD41EBAA18E02D6200E3C01A /* PinkCar.png */; };
 		FD41EBB018E02D6200E3C01A /* RedCar.png in Resources */ = {isa = PBXBuildFile; fileRef = FD41EBAB18E02D6200E3C01A /* RedCar.png */; };
 		FD41EBB118E02D6200E3C01A /* YellowCar.png in Resources */ = {isa = PBXBuildFile; fileRef = FD41EBAC18E02D6200E3C01A /* YellowCar.png */; };
+		FDA3858218E8EF15006E2DE2 /* Coin.png in Resources */ = {isa = PBXBuildFile; fileRef = FDA3858118E8EF15006E2DE2 /* Coin.png */; };
+		FDB92D1418EA387000406FCC /* Coin.m in Sources */ = {isa = PBXBuildFile; fileRef = FDB92D1318EA387000406FCC /* Coin.m */; };
+		FDC728E918E82E2500E96C5D /* PauseButton.png in Resources */ = {isa = PBXBuildFile; fileRef = FDC728E718E82E2500E96C5D /* PauseButton.png */; };
+		FDC728EA18E82E2500E96C5D /* PlayButton.png in Resources */ = {isa = PBXBuildFile; fileRef = FDC728E818E82E2500E96C5D /* PlayButton.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +53,10 @@
 /* Begin PBXFileReference section */
 		CBD4601018E229980026DE96 /* Car.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Car.h; sourceTree = "<group>"; };
 		CBD4601118E229980026DE96 /* Car.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Car.m; sourceTree = "<group>"; };
+		FD12128118E7E2CC00E5C3EB /* DarkGreenCar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DarkGreenCar.png; sourceTree = "<group>"; };
+		FD12128218E7E2CC00E5C3EB /* PlumCar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlumCar.png; sourceTree = "<group>"; };
+		FD12128318E7E2CC00E5C3EB /* SteelCar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SteelCar.png; sourceTree = "<group>"; };
+		FD12128418E7E2CC00E5C3EB /* TurquoiseCar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TurquoiseCar.png; sourceTree = "<group>"; };
 		FD41EB6318E0197E00E3C01A /* Cars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD41EB6618E0197E00E3C01A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FD41EB6818E0197E00E3C01A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -72,6 +84,11 @@
 		FD41EBAA18E02D6200E3C01A /* PinkCar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PinkCar.png; sourceTree = "<group>"; };
 		FD41EBAB18E02D6200E3C01A /* RedCar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedCar.png; sourceTree = "<group>"; };
 		FD41EBAC18E02D6200E3C01A /* YellowCar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = YellowCar.png; sourceTree = "<group>"; };
+		FDA3858118E8EF15006E2DE2 /* Coin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Coin.png; sourceTree = "<group>"; };
+		FDB92D1218EA387000406FCC /* Coin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coin.h; sourceTree = "<group>"; };
+		FDB92D1318EA387000406FCC /* Coin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Coin.m; sourceTree = "<group>"; };
+		FDC728E718E82E2500E96C5D /* PauseButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PauseButton.png; sourceTree = "<group>"; };
+		FDC728E818E82E2500E96C5D /* PlayButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayButton.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +153,8 @@
 				FD41EB7818E0197E00E3C01A /* Main.storyboard */,
 				FD41EB9B18E019C300E3C01A /* ViewController.h */,
 				FD41EB9C18E019C300E3C01A /* ViewController.m */,
+				FDB92D1218EA387000406FCC /* Coin.h */,
+				FDB92D1318EA387000406FCC /* Coin.m */,
 				CBD4601018E229980026DE96 /* Car.h */,
 				CBD4601118E229980026DE96 /* Car.m */,
 				FD41EB7E18E0197E00E3C01A /* Images.xcassets */,
@@ -147,6 +166,13 @@
 		FD41EB6D18E0197E00E3C01A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FDA3858118E8EF15006E2DE2 /* Coin.png */,
+				FDC728E718E82E2500E96C5D /* PauseButton.png */,
+				FDC728E818E82E2500E96C5D /* PlayButton.png */,
+				FD12128118E7E2CC00E5C3EB /* DarkGreenCar.png */,
+				FD12128218E7E2CC00E5C3EB /* PlumCar.png */,
+				FD12128318E7E2CC00E5C3EB /* SteelCar.png */,
+				FD12128418E7E2CC00E5C3EB /* TurquoiseCar.png */,
 				FD41EBA818E02D6200E3C01A /* BlueCar.png */,
 				FD41EBA918E02D6200E3C01A /* OrangeCar.png */,
 				FD41EBAA18E02D6200E3C01A /* PinkCar.png */,
@@ -257,6 +283,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDA3858218E8EF15006E2DE2 /* Coin.png in Resources */,
+				FD12128618E7E2CC00E5C3EB /* PlumCar.png in Resources */,
+				FD12128518E7E2CC00E5C3EB /* DarkGreenCar.png in Resources */,
 				FD41EB7F18E0197E00E3C01A /* Images.xcassets in Resources */,
 				FD41EB7118E0197E00E3C01A /* InfoPlist.strings in Resources */,
 				FD41EBA718E024A000E3C01A /* CarRoadLines.png in Resources */,
@@ -264,10 +293,14 @@
 				FD41EBB018E02D6200E3C01A /* RedCar.png in Resources */,
 				FD41EBAE18E02D6200E3C01A /* OrangeCar.png in Resources */,
 				FD41EBAD18E02D6200E3C01A /* BlueCar.png in Resources */,
+				FD12128818E7E2CC00E5C3EB /* TurquoiseCar.png in Resources */,
 				FD41EBA318E01A0400E3C01A /* GreenCar.png in Resources */,
 				FD41EB7A18E0197E00E3C01A /* Main.storyboard in Resources */,
+				FDC728E918E82E2500E96C5D /* PauseButton.png in Resources */,
 				FD41EB9F18E019F600E3C01A /* New Road.png in Resources */,
+				FD12128718E7E2CC00E5C3EB /* SteelCar.png in Resources */,
 				FD41EBAF18E02D6200E3C01A /* PinkCar.png in Resources */,
+				FDC728EA18E82E2500E96C5D /* PlayButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +319,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDB92D1418EA387000406FCC /* Coin.m in Sources */,
 				FD41EB9D18E019C300E3C01A /* ViewController.m in Sources */,
 				FD41EB7718E0197E00E3C01A /* AppDelegate.m in Sources */,
 				CBD4601218E229980026DE96 /* Car.m in Sources */,
